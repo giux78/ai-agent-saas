@@ -38,6 +38,7 @@ export function Chat({ id, initialMessages, name, className }: ChatProps) {
   const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
   const { messages, append, reload, stop, isLoading, input, setInput } =
     useChat({
+      api : '/api/agent',
       initialMessages,
       id,
       body: {
@@ -54,7 +55,7 @@ export function Chat({ id, initialMessages, name, className }: ChatProps) {
   return (
     <>
       <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
-      <div className="mx-auto max-w-2xl px-4">
+      <div className="mx-auto px-4">
           <div className="rounded-lg border bg-background p-8">
             <h1 className="mb-2 text-lg font-semibold">
               Welcome to {name}

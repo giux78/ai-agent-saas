@@ -4,9 +4,9 @@ import { SiteConfig } from "types"
 const site_url = env.NEXT_PUBLIC_APP_URL;
 
 export const siteConfig: SiteConfig = {
-  name: "SaaS Starter",
+  name: "Personal Operating System",
   description:
-    "An open source application built using the new router, server components and everything new in Next.js 14.",
+    "Your personal operating system, record your task and we will automatize for you beeing your interface of your digital life",
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {

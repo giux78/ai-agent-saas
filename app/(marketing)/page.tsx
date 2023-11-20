@@ -43,9 +43,9 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Kick off with a bang with{" "}
+              Start using your {" "}
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
-                SaaS Starter
+                Personal operating system
               </span>
             </Balancer>
           </h1>
@@ -55,7 +55,7 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Build your next project using Next.js 14, Prisma, Planetscale, Auth.js, Resend, React Email, Shadcn/ui, Stripe.
+            Your personal operating system, record your task and we will automatize for you beeing the interface of your digital life
             </Balancer>
           </p>
 
@@ -82,6 +82,8 @@ export default async function IndexPage() {
         </div>
       </section>
 
+
+{/*
       <section
         className="animate-fade-up py-16 text-zinc-500 opacity-0 dark:text-zinc-400"
         style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
@@ -102,6 +104,7 @@ export default async function IndexPage() {
           </div>
         </div>
       </section>
+            */}
     </>
   )
 }

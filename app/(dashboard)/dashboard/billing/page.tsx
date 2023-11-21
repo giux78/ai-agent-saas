@@ -35,7 +35,7 @@ export default async function BillingPage() {
           <Icons.warning />
           <AlertTitle>This is a demo app.</AlertTitle>
           <AlertDescription>
-            Personal operating systam is your automatization tools crete your 
+            Your business operating system is your automatization tools crete your 
             routine and the system will record and automatize for you{" "}
             <a
               href="https://stripe.com/docs/testing#cards"

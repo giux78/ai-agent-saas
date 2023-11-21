@@ -4,9 +4,9 @@ import { SiteConfig } from "types"
 const site_url = env.NEXT_PUBLIC_APP_URL;
 
 export const siteConfig: SiteConfig = {
-  name: "Personal Operating System",
+  name: "Business Operating System",
   description:
-    "Your personal operating system, record your task and we will automatize for you beeing your interface of your digital life",
+    "Your Business operating system, record your task and we will automatize for you beeing your interface of your digital life",
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {

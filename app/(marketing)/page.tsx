@@ -43,9 +43,9 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Start using your {" "}
+               Your {" "}
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
-                Personal operating system
+                Business Operating System
               </span>
             </Balancer>
           </h1>
@@ -55,7 +55,11 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
           >
             <Balancer>
-            Your personal operating system, record your task and we will automatize for you beeing the interface of your digital life
+            A set of autonomous agents for running a company that can run on your behalf. 
+            We are creating a series of interconnectd agents able to create products, 
+            sell through negotiations with clients, handle social media and marketing 
+            campaigns by itself and more. 
+            We will share the journey and the tecnology in the open.   
             </Balancer>
           </p>
 
@@ -63,22 +67,36 @@ export default async function IndexPage() {
             className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
-            <Link href="/pricing" className={cn(buttonVariants({ size: "lg" }))}>
-              Go Pricing
+            <Link href="/store" className={cn(buttonVariants({ size: "lg" }))}>
+              Visit the store 
             </Link>
             <Link
-              href={siteConfig.links.github}
+              href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
               target="_blank"
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-4")}
             >
-              <Icons.gitHub className="mr-2 h-4 w-4" />
+              <Icons.openai className="mr-2 h-4 w-4" />
               <p>
-                <span className="hidden sm:inline-block">Star on</span>{" "}GitHub{" "}
-                <span className="font-semibold">{nFormatter(stars)}</span>
+                <span className="hidden sm:inline-block">GPTs Hoodie </span>{" "}Creator{" "}
               </p>
             </Link>
           </div>
+          <div className="flex justify-center items-center">         
+            <a key="hoodie-c" href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator" className="group">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                <img
+                  src="/images/hoodie_creator_logo_small.png"
+                  alt="hoodie creator logo"
+                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                />
+              </div>
+              <h2 className="mt-4 text-sm text-gray-700">Hoddie Creator Agent</h2>
+              {/*
+              <p className="mt-1 text-lg font-medium text-gray-900">{product.default_price?.}</p>
+            */}
+            </a>
+        </div>
         </div>
       </section>
 

@@ -82,9 +82,9 @@ export default async function IndexPage() {
               </p>
             </Link>
           </div>
-          <div className="flex justify-center items-center">         
+          <div className="flex items-center justify-center">         
             <a key="hoodie-c" href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator" className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+              <div className="aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7 w-full overflow-hidden rounded-lg bg-gray-200">
                 <img
                   src="/images/hoodie_creator_logo_small.png"
                   alt="hoodie creator logo"

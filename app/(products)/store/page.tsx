@@ -82,7 +82,7 @@ export default async function PricingPage() {
               className={cn(buttonVariants({ variant: "outline", size: "xl" }), "px-8")}
             >
               <Icons.openai className="mr-2 h-4 w-4" />
-              <p className='text-lg text-bold'>
+              <p className='text-bold text-lg'>
                 <span className="hidden xl:inline-block">GPTs Create with </span>{" "} Hoodie Creator{" "}
               </p>
             </Link>

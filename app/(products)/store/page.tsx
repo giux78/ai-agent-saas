@@ -75,10 +75,6 @@ export default async function PricingPage() {
 
         <h2 className="sr-only">Products</h2>
         <div className="mx-auto mb-10 flex w-full flex-col gap-5">
-        <h2 className="font-heading text-3xl leading-[1.1] md:text-5xl">
-          Create your unique and original hoodie
-        </h2>
-
         <Link
               href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
               target="_blank"
@@ -86,11 +82,15 @@ export default async function PricingPage() {
               className={cn(buttonVariants({ variant: "outline", size: "xl" }), "px-8")}
             >
               <Icons.openai className="mr-2 h-4 w-4" />
-              <p>
-                <span className="hidden sm:inline-block">GPTs Hoodie </span>{" "}Creator{" "}
+              <p className='text-lg text-bold'>
+                <span className="hidden xl:inline-block">GPTs Create with </span>{" "} Hoodie Creator{" "}
               </p>
             </Link>
       </div>
+
+      <h2 className="font-heading text-3xl leading-[1.1] md:text-5xl">
+          Products
+        </h2>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (

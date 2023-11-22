@@ -55,13 +55,17 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
           >
             <Balancer>
-            A set of autonomous agents for running a company that can run on your behalf. 
-            We are creating a series of interconnectd agents able to create products, 
+            A set of autonomous agents for running a company on your behalf. 
+            We are creating a serie of interconnected agents able to start a company, create products, 
             sell through negotiations with clients, handle social media and marketing 
-            campaigns by itself and more. 
+            campaigns, keep track of the financial records and everything in the need all by itself. 
             We will share the journey and the tecnology in the open.   
             </Balancer>
           </p>
+
+          <h1 className="text-xl font-bold tracking-tight">
+                    Our first agent is a designer for creating the perfect hoodie
+          </h1>
 
           <div
             className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"

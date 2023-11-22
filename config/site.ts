@@ -10,8 +10,8 @@ export const siteConfig: SiteConfig = {
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {
-    twitter: "https://twitter.com/miickasmt",
-    github: "https://github.com/mickasmt/next-saas-stripe-starter",
+    twitter: "https://twitter.com/giuxale",
+    github: "https://github.com/giux78",
   },
-  mailSupport: "support@saas-starter.com"
+  mailSupport: "ale.ercolani@gmail.com"
 }

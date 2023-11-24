@@ -30,7 +30,7 @@ export default async function IndexPage() {
       <section className="space-y-6 pb-12 pt-16 lg:py-28">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
           <Link
-            href="https://twitter.com/miickasmt/status/1719892161095745801"
+            href="https://twitter.com/giuxale"
             className={cn(buttonVariants({ variant: "outline", size: "sm" }), "animate-fade-up opacity-0")}
             style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
             target="_blank"
@@ -87,7 +87,11 @@ export default async function IndexPage() {
             </Link>
           </div>
           <div className="flex items-center justify-center">         
-            <a key="hoodie-c" href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator" className="group">
+            <Link key="hoodie-c" 
+              href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator" 
+              className="group"
+              target="_blank"
+              rel="noreferrer">
               <div className="aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7 w-full overflow-hidden rounded-lg bg-gray-200">
                 <img
                   src="/images/hoodie_creator_logo_small.png"
@@ -99,7 +103,7 @@ export default async function IndexPage() {
               {/*
               <p className="mt-1 text-lg font-medium text-gray-900">{product.default_price?.}</p>
             */}
-            </a>
+            </Link>
         </div>
         </div>
       </section>

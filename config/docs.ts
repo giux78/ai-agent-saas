@@ -27,77 +27,27 @@ export const docsConfig: DocsConfig = {
         {
           title: "Introduction",
           href: "/docs/documentation",
-        },
-        {
-          title: "Contentlayer",
-          href: "/docs/in-progress",
           disabled: true,
         },
         {
-          title: "Components",
-          href: "/docs/documentation/components",
+          title: "Agents",
+          href: "/docs/agents",
+          disabled: true,
         },
         {
-          title: "Code Blocks",
-          href: "/docs/documentation/code-blocks",
-        },
-        {
-          title: "Style Guide",
-          href: "/docs/documentation/style-guide",
-        },
+          title: "Memory",
+          href: "/docs/memory",
+          disabled: true,
+        }
+
       ],
     },
     {
-      title: "Blog",
+      title: "API",
       items: [
         {
           title: "Introduction",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Build your own",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Writing Posts",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-      ],
-    },
-    {
-      title: "Dashboard",
-      items: [
-        {
-          title: "Introduction",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Layouts",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Server Components",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Authentication",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "Database with Prisma",
-          href: "/docs/in-progress",
-          disabled: true,
-        },
-        {
-          title: "API Routes",
-          href: "/docs/in-progress",
+          href: "/docs/api",
           disabled: true,
         },
       ],

@@ -118,7 +118,7 @@ export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
 
       <p className="mt-3 text-center text-base text-muted-foreground">
         <Balancer>
-          Email <a className="font-medium text-primary hover:underline" href="mailto:support@saas-starter.com">support@saas-starter.com</a> for to contact our support team.
+          Email <a className="font-medium text-primary hover:underline" href="mailto:ale.ercolani@gmail.com">ale.ercolani@gmail.com</a> for to contact our support team.
           <br />
           <strong>You can test the subscriptions and won&apos;t be charged.</strong>
         </Balancer>

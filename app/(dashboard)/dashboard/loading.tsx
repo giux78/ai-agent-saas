@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button"
 export default function DashboardLoading() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="Posts" text="Create and manage posts.">
-        <Button>Fake button</Button>
+      <DashboardHeader heading="Dashboard" text="User dashboard">
       </DashboardHeader>
       <div className="divide-border-200 divide-y rounded-md border">
         <CardSkeleton />

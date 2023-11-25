@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "contentlayer build && next build",
+    "contentlayer": "contentlayer build",
     "turbo": "next dev --turbo",
     "start": "next start",
     "lint": "next lint --fix",

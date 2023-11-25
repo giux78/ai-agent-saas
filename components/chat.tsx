@@ -58,7 +58,7 @@ export function Chat({ id, initialMessages, name, className }: ChatProps) {
       <div className="mx-auto px-4">
           <div className="rounded-lg border bg-background p-8">
             <h1 className="mb-2 text-lg font-semibold">
-            Thank you for registering but I m still in beta fase
+            Thank you for registering we will notice as soos as we will release
             </h1>
           </div>
           </div> 

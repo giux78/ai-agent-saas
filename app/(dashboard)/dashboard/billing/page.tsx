@@ -33,17 +33,16 @@ export default async function BillingPage() {
       <div className="grid gap-8">
         <Alert className="!pl-14">
           <Icons.warning />
-          <AlertTitle>This is a demo app.</AlertTitle>
+          <AlertTitle>This is still in alpha</AlertTitle>
           <AlertDescription>
-            Your business operating system is your automatization tools crete your 
-            routine and the system will record and automatize for you{" "}
+            Your business operating system is a set of agents for running your business{" "}
             <a
-              href="https://stripe.com/docs/testing#cards"
+              href="https://businessos.xyz"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-8"
             >
-              Stripe docs
+              Business Operating System
             </a>
             .
           </AlertDescription>

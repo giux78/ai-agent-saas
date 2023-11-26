@@ -27,7 +27,11 @@ async function getProducts() {
     throw new Error('Failed to fetch data')
   }
  
-  return products.data
+  const productsNoSub = products.data.filter((obj) => {
+    return !obj.description?.toLocaleLowerCase().includes('plan');
+  });
+
+  return productsNoSub
 }
 
 export default async function PricingPage() {

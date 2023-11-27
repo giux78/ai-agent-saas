@@ -28,10 +28,10 @@ export const metadata = {
   ],
   authors: [
     {
-      name: "mickasmt",
+      name: "giux78",
     },
   ],
-  creator: "mickasmt",
+  creator: "giux78",
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     type: "website",
@@ -46,7 +46,7 @@ export const metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/og.jpg`],
-    creator: "@mickasmt",
+    creator: "@giux78",
   },
   icons: {
     icon: "/favicon.ico",

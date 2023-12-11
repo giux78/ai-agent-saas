@@ -27,9 +27,10 @@ export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string,
   name?:string
+  threadId?:string
 }
 
-export function Chat({ id, initialMessages, name, className }: ChatProps) {
+export function Chat({ id, initialMessages, name, className, threadId }: ChatProps) {
   const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
     'ai-token',
     null
@@ -58,7 +59,7 @@ export function Chat({ id, initialMessages, name, className }: ChatProps) {
       <div className="mx-auto px-4">
           <div className="rounded-lg border bg-background p-8">
             <h1 className="mb-2 text-lg font-semibold">
-            Thank you for registering we will notice as soos as we will release
+            Thank you for registering we will notice as ChatScrollAnchor as we will release
             </h1>
           </div>
           </div> 
@@ -80,6 +81,7 @@ export function Chat({ id, initialMessages, name, className }: ChatProps) {
         messages={messages}
         input={input}
         setInput={setInput}
+        threadId={threadId}
       />
 
       <Dialog open={previewTokenDialog} onOpenChange={setPreviewTokenDialog}>

@@ -12,22 +12,45 @@ import {
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
+import { openaiClient } from '@/lib/openaiClient'
 
 export interface PromptProps
   extends Pick<UseChatHelpers, 'input' | 'setInput'> {
   onSubmit: (value: string) => Promise<void>
   isLoading: boolean
+  threadId?: string
 }
+
+//   // thread_scYI1OoDkYCedC83ouBoVFGU
+  // asst_YxvBcmhcuMPEHdyh8Vesdj4I
+
+
+
 
 export function PromptForm({
   onSubmit,
   input,
   setInput,
-  isLoading
+  isLoading,
+  threadId
 }: PromptProps) {
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
   const router = useRouter()
+
+  const talkToAssistant = async () => {
+    const response = await fetch(
+      "/api/assistant/asst_YxvBcmhcuMPEHdyh8Vesdj4I/" + threadId, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "question" : "Ciao!"
+      })
+    })
+     console.log(response.json());
+  }
 
   React.useEffect(() => {
     if (inputRef.current) {
@@ -94,6 +117,9 @@ export function PromptForm({
           </Tooltip>
         </div>
       </div>
+      <Button onClick={talkToAssistant}>
+        Test
+      </Button>
     </form>
   )
 }

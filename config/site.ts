@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {
-    twitter: "https://twitter.com/giuxale",
+    twitter: "https://twitter.com/businessos_",
     github: "https://github.com/giux78",
   },
   mailSupport: "ale.ercolani@gmail.com"

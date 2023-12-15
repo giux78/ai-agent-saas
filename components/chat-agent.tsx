@@ -4,7 +4,7 @@ import { useChat, type Message } from 'ai/react'
 
 import { cn } from '@/lib/utils'
 import { ChatList } from '@/components/chat-list'
-import { ChatPanel } from '@/components/chat-panel'
+import { ChatPanelAgent } from '@/components/chat-panel-agent'
 
 import { ChatScrollAnchor } from '@/components/chat-scroll-anchor'
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
@@ -30,7 +30,7 @@ export interface ChatProps extends React.ComponentProps<'div'> {
   threadId?:string
 }
 
-export function Chat({ id, initialMessages, name, className, threadId }: ChatProps) {
+export function ChatAgent({ id, initialMessages, name, className, threadId }: ChatProps) {
   const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
     'ai-token',
     null
@@ -56,13 +56,6 @@ export function Chat({ id, initialMessages, name, className, threadId }: ChatPro
   return (
     <>
       <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
-      <div className="mx-auto px-4">
-          <div className="rounded-lg border bg-background p-8">
-            <h1 className="mb-2 text-lg font-semibold">
-            Thank you for registering we will notice as soon as we will release
-            </h1>
-          </div>
-          </div> 
         {messages.length ? (
           <>
             <ChatList messages={messages} />
@@ -72,7 +65,7 @@ export function Chat({ id, initialMessages, name, className, threadId }: ChatPro
           <EmptyScreen setInput={setInput}/>
         )}
       </div>
-      <ChatPanel
+      <ChatPanelAgent
         id={id}
         isLoading={isLoading}
         stop={stop}

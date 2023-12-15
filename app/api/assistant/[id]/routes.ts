@@ -1,12 +1,9 @@
 import { getServerSession } from "next-auth/next"
 import { z } from "zod"
+import { kv } from '@vercel/kv'
 
 import { authOptions } from "@/lib/auth"
-import { absoluteUrl } from "@/lib/utils"
 import OpenAI from "openai"
-import { MessageContentText } from "openai/resources/beta/threads/messages/messages"
-import { openaiClient } from "@/lib/openaiClient";
-
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -26,14 +23,20 @@ export async function POST(
   // asst_YxvBcmhcuMPEHdyh8Vesdj4I
   
   try {
-  //  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions)
 
-  //  if (!session?.user || !session?.user.email) {
-  //    return new Response(null, { status: 403 })
-  //  }
+  if (!session?.user || !session?.user.email) {
+      return new Response(null, { status: 403 })
+  }
 
     const thread = await openai.beta.threads.create(); 
-    console.log(thread);             
+    console.log(thread);
+  
+    await kv.hset(`thread:${thread.id}`, JSON.parse(JSON.stringify(thread)));
+    await kv.zadd(`user:thread:${session?.user.email}`, {
+      score: thread.created_at,
+      member: `thread:${thread.id}`
+    });          
     return new Response(JSON.stringify(thread))
   
   } catch (error) {

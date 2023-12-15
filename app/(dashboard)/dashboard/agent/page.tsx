@@ -6,9 +6,10 @@ import { EmptyPlaceholder } from "@/components/shared/empty-placeholder"
 import { DashboardHeader } from "@/components/dashboard/header"
 import { DashboardShell } from "@/components/dashboard/shell"
 import { Button } from "@/components/ui/button"
-import { Chat } from "@/components/chat"
 import { openaiClient } from "@/lib/openaiClient"
 import { tr } from "date-fns/locale"
+import { ChatAgent } from "@/components/chat-agent"
+import { kv } from "@vercel/kv"
 
 export const metadata = {
   title: "Dashboard",
@@ -20,6 +21,14 @@ export default async function DashboardPage() {
   if (!user) {
     redirect(authOptions?.pages?.signIn || "/login")
   }
+
+  const thread = await openaiClient.beta.threads.create(); 
+  const id = thread.id
+  await kv.hset(`thread:${thread.id}`, JSON.parse(JSON.stringify(thread)));
+  await kv.zadd(`user:thread:${user.email}`, {
+    score: thread.created_at,
+    member: `thread:${thread.id}`
+  });  
 
   return (
     <DashboardShell>
@@ -40,7 +49,7 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-      <Chat id="test" name="test"/>
+      <ChatAgent id="test" name="test" threadId={id}/>
     </DashboardShell>
   )
 }

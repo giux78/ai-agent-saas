@@ -51,7 +51,7 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-      <ChatAgent id="asst_YxvBcmhcuMPEHdyh8Vesdj4I" name="Hoodie" threadId={id}/>
+      <ChatAgent id="asst_YxvBcmhcuMPEHdyh8Vesdj4I" name="Hoodie Creator" logo="hoodie_creator_logo_small.png" threadId={id}/>
     </DashboardShell>
   )
 }

@@ -2,13 +2,8 @@ import { redirect } from "next/navigation"
 
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
-import { EmptyPlaceholder } from "@/components/shared/empty-placeholder"
-import { DashboardHeader } from "@/components/dashboard/header"
 import { DashboardShell } from "@/components/dashboard/shell"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { Chat } from "@/components/chat"
-import { openaiClient } from "@/lib/openaiClient"
-import { tr } from "date-fns/locale"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/shared/icons"
@@ -59,7 +54,7 @@ export default async function DashboardPage() {
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a wonderful unique hoodie</p>
         <div className="grid grid-cols-2 gap-1">
         <Link href="/dashboard/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-        Agent
+        Hoodie Creator
             </Link>
             <Link
               href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
@@ -86,6 +81,32 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-2 gap-1">
             <Link
               href="https://chat.openai.com/g/g-y5mZf5t8C-x-marketing"
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
+            >
+              <Icons.openai className="mr-2 h-4 w-4" />
+                <span className="hidden sm:inline-block">GPTs </span>
+            </Link>
+        </div>
+    </div>
+</div>
+<div  className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-550"
+        >
+    <a href="/dashboard/analyst">
+        <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/dashboard/analyst">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chart Creator</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create chart from your data</p>
+        <div className="grid grid-cols-2 gap-1">
+        <Link href="/dashboard/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Analyst
+            </Link>
+            <Link
+              href="https://chat.openai.com/g/g-urKpkuDUP-chart-creator"
               target="_blank"
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}

@@ -13,11 +13,13 @@ import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { openaiClient } from '@/lib/openaiClient'
+import { useRef, useState } from 'react'
 
 export interface PromptProps
   extends Pick<UseChatHelpers, 'input' | 'setInput' | 'setMessages'> {
   isLoading: boolean
   threadId?: string
+  assistantId?: string
 }
 
 //   // thread_scYI1OoDkYCedC83ouBoVFGU
@@ -27,28 +29,44 @@ export function PromptFormAssistant({
   setInput,
   isLoading,
   threadId,
-  setMessages
+  setMessages,
+  assistantId
 }: PromptProps) {
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
   const router = useRouter()
+  const inputFile = useRef<HTMLInputElement | null>(null);
+  const [file, setFile] = useState<File>()
+
+  const uploadToClient = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
+      setFile(i);
+      setInput(`[File ${i.name}]`)
+    }
+  };
 
   const talkToAssistant = async (question) => {
+
+    const data = new FormData()
+    data.set('file', file!)
+    data.append('question', question);
+
     const response = await fetch(
-      "/api/assistant/asst_YxvBcmhcuMPEHdyh8Vesdj4I/" + threadId, {
+      `/api/assistant/${assistantId}/${threadId}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+      //headers: {
+      //  "Content-Type": "application/json",
+      //},
+      body: data /*JSON.stringify({
         "question" : question
-      })
+      })*/
     })
     console.log("qua ci sono ");
     const messages = await response.json();
     console.log(messages);
     setMessages(messages)
- 
+    setFile(undefined); 
   }
 
   React.useEffect(() => {
@@ -75,8 +93,10 @@ export function PromptFormAssistant({
             <button
               onClick={e => {
                 e.preventDefault()
-                router.refresh()
-                router.push('/')
+                if (inputFile.current !== null) {
+                  inputFile.current.click();
+                }
+                
               }}
               className={cn(
                 buttonVariants({ size: 'sm', variant: 'outline' }),
@@ -84,10 +104,10 @@ export function PromptFormAssistant({
               )}
             >
               <IconPlus />
-              <span className="sr-only">New Chat</span>
+              <span className="sr-only">Upload File</span>
             </button>
           </TooltipTrigger>
-          <TooltipContent>New Chat</TooltipContent>
+          <TooltipContent>Upload File</TooltipContent>
         </Tooltip>
         <Textarea
           ref={inputRef}
@@ -115,6 +135,8 @@ export function PromptFormAssistant({
             <TooltipContent>Send message</TooltipContent>
           </Tooltip>
         </div>
+        <input type='file' id='file' ref={inputFile} style={{display: 'none'}} onChange={uploadToClient}/>
+
       </div>
     </form>
   )

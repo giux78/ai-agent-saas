@@ -5,6 +5,12 @@ import { authOptions } from "@/lib/auth"
 import { MessageContentText } from "openai/resources/beta/threads/messages/messages"
 import { openaiClient } from "@/lib/openaiClient"
 import { kv } from "@vercel/kv"
+import * as fs from 'fs';
+import { writeFile } from 'fs/promises'
+import { FileObject } from "openai/resources"
+import { s3 } from "@/lib/s3"
+import { PutObjectCommand } from "@aws-sdk/client-s3"
+
 
 export const maxDuration = 300; 
 
@@ -83,13 +89,31 @@ export async function POST(
     request: Request, 
     { params }: { params: { id: string, thread_id : string } }) {
   
-  const res = await request.json();
-  console.log(params.id);
-  console.log(params.thread_id);
-  const threadId = params.thread_id
-  const prompt = res['question'];
+  //const res = await request.json();
+  const formData = await request.formData();
 
-  
+  const file = formData.get("file")
+  const prompt = formData.get('question') as string
+
+  let fileId = "";
+  if (file !== 'undefined') {
+    const realFile = file as File;
+    const bytes = await realFile.arrayBuffer()
+    const buffer = Buffer.from(bytes)
+    const path = `/tmp/${realFile.name}`
+    await writeFile(path, buffer)
+
+    const fileOpenai = await openaiClient.files.create({
+      file: fs.createReadStream(path),
+      purpose: "assistants",
+    });
+    fileId = fileOpenai.id;
+  }
+
+  const threadId = params.thread_id;
+  const assistantId = params.id;
+  //const prompt = res['question'];
+
   try {
     const session = await getServerSession(authOptions)
 
@@ -97,13 +121,26 @@ export async function POST(
       return new Response(null, { status: 403 })
     }
 
-    const message = await openaiClient.beta.threads.messages.create(
-      threadId,
-      {
-        role: "user",
-        content: prompt
-      }
-    );
+
+    let message;
+    if (fileId !== ''){
+       message = await openaiClient.beta.threads.messages.create(
+        threadId,
+        {
+          role: "user",
+          content: prompt,
+          file_ids : [fileId]
+        }
+      );
+    } else {
+       message = await openaiClient.beta.threads.messages.create(
+        threadId,
+        {
+          role: "user",
+          content: prompt
+        }
+      );
+    }
 
     console.log("This is the message object: ", message, "\n");
 
@@ -111,7 +148,7 @@ export async function POST(
   const myRun = await openaiClient.beta.threads.runs.create(
     threadId,
     {
-      assistant_id: 'asst_YxvBcmhcuMPEHdyh8Vesdj4I',
+      assistant_id: assistantId,
     }
   );
   console.log("This is the run object: ", myRun, "\n");
@@ -186,13 +223,38 @@ export async function POST(
     );
 
     console.log("User: ", (message.content[0] as MessageContentText).text.value);
-    console.log("Assistant: ", ( allMessages.data[0].content[0] as MessageContentText).text.value);
-    const messagesA = allMessages.data.map((mess) => { 
-      const t = {"id": mess.id, "content": (mess.content[0] as MessageContentText).text.value, "role": mess.role};
-      return t;
-    })
-    await kv.set(`thread:${threadId}:messages`, JSON.stringify(messagesA));
+    //console.log("Assistant: ", ( allMessages.data[0].content[0] as MessageContentText).text.value);
+    console.log("Assistant: ", allMessages.data[0].content[0]) //.text.value);
+    
+    const messagesA = await Promise.all(allMessages.data.map(async (mess) => { 
+      let out = ""
+      for (let i = 0; mess.content.length > i; i++){
+        const cont = mess.content[i]
+        if(cont.type === 'text'){
+          out = out + cont.text.value
+        } else if(cont.type === 'image_file'){
+          const openFile = await openaiClient.files.content(cont.image_file.file_id);
+          const image_data = await openFile.arrayBuffer();
+          const image_data_buffer = Buffer.from(image_data);
 
+          //fs.writeFileSync(`/tmp/${cont.image_file.file_id}.png`, image_data_buffer);
+          const uploadParams = {
+            Bucket: "hoodie-creator",
+            Key: `${cont.image_file.file_id}.png`, // the name of the file in the bucket
+            Body: image_data_buffer,
+            ContentType: "image/png" // or the appropriate content type
+          };
+          const data = await s3.send(new PutObjectCommand(uploadParams));
+          console.log("Success", data);
+          out = out + " "  + `![image](https://hoodie-creator.s3.eu-west-1.amazonaws.com/${cont.image_file.file_id}.png)`
+        }
+      
+      const t = {"id": mess.id, "content": out, "role": mess.role};
+      return t;
+      }
+    }))
+
+    await kv.set(`thread:${threadId}:messages`, JSON.stringify(messagesA));
     return new Response(JSON.stringify( messagesA.reverse()))
 
   };

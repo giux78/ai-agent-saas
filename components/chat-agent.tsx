@@ -37,7 +37,10 @@ export function ChatAgent({ id, initialMessages, name, className, threadId }: Ch
   )
   const [previewTokenDialog, setPreviewTokenDialog] = useState(IS_PREVIEW)
   const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
-  const { messages, append, reload, stop, isLoading, input, setInput, setMessages } =
+  const [messages, setMessages] = useState<Message[]>([]);
+  const  [isLoading,setIsLoading] = useState<boolean>(false);
+  const [input, setInput] = useState<string>("");
+  /*const { messages, append, reload, stop, isLoading, input, setInput, setMessages } =
     useChat({
       api : '/api/agent',
       initialMessages,
@@ -52,7 +55,7 @@ export function ChatAgent({ id, initialMessages, name, className, threadId }: Ch
           toast.error(response.statusText)
         }
       }
-    })
+    }) */
   return (
     <>
       <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
@@ -68,9 +71,9 @@ export function ChatAgent({ id, initialMessages, name, className, threadId }: Ch
       <ChatPanelAgent
         id={id}
         isLoading={isLoading}
-        stop={stop}
-        append={append}
-        reload={reload}
+        //stop={stop}
+        //append={append}
+        //reload={reload}
         messages={messages}
         input={input}
         setInput={setInput}

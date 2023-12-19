@@ -38,20 +38,6 @@ export function PromptForm({
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
   const router = useRouter()
 
-  const talkToAssistant = async () => {
-    const response = await fetch(
-      "/api/assistant/asst_YxvBcmhcuMPEHdyh8Vesdj4I/" + threadId, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        "question" : "Ciao!"
-      })
-    })
-     console.log(response.json());
-  }
-
   React.useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus()
@@ -117,9 +103,7 @@ export function PromptForm({
           </Tooltip>
         </div>
       </div>
-      <Button onClick={talkToAssistant}>
-        Test
-      </Button>
+
     </form>
   )
 }

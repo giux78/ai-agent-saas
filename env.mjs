@@ -15,6 +15,8 @@ export const env = createEnv({
     STRIPE_API_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     OPENAI_API_KEY: z.string().min(1),
+    AWS_SERVER_PUBLIC_KEY: z.string().min(1),
+    AWS_SERVER_SECRET_KEY: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -40,5 +42,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID: process.env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID,
     NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID: process.env.NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID,
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: process.env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
+    AWS_SERVER_PUBLIC_KEY: process.env.AWS_SERVER_PUBLIC_KEY,
+    AWS_SERVER_SECRET_KEY: process.env.AWS_SERVER_SECRET_KEY,
   },
 })

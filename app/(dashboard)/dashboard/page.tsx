@@ -41,8 +41,8 @@ export default async function DashboardPage() {
        <h1 className="font-heading text-3xl leading-[1.1] md:text-5xl">
           Agents
         </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-      <div  className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-550"
+      <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
+      <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="/dashboard/agent">
         <img className="rounded-t-lg" src="/images/hoodie_creator_logo.png" alt="" />
@@ -68,7 +68,7 @@ export default async function DashboardPage() {
         </div>
     </div>
 </div>
-<div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-550"
+<div className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="#">
         <img className="rounded-t-lg" src="/images/x-marketing-logo.png" alt="" />
@@ -91,7 +91,7 @@ export default async function DashboardPage() {
         </div>
     </div>
 </div>
-<div  className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-550"
+<div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="/dashboard/analyst">
         <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />

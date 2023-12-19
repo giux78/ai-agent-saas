@@ -60,7 +60,7 @@ export function ChatAgent({ id, initialMessages, name, className, threadId, logo
   return (
     <>
     <div className="flex items-center p-4">
-      <img src={`/images/${logo}`} alt="Descriptive Alt Text" className="rounded-full w-20 h-20 object-cover mr-4"/>
+      <img src={`/images/${logo}`} alt="Descriptive Alt Text" className="mr-4 h-20 w-20 rounded-full object-cover"/>
       <h2 className="text-lg font-bold">{name}</h2>
     </div>
       <div className={cn('pb-[200px] pt-1 md:pt-4', className)}>

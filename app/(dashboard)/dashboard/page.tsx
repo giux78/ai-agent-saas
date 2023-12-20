@@ -38,7 +38,7 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-       <h1 className="font-heading p-5 text-3xl leading-[1.1] md:text-5xl">
+       <h1 className="p-5 font-heading text-3xl leading-[1.1] md:text-5xl">
           Agents
         </h1>
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">

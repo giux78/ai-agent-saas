@@ -51,7 +51,12 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-      <ChatAgent id="asst_p7n265weAL7Wv0aKNscuP25q" name="Analyst" threadId={id} logo="chart-creator-logo.png"/>
+      <ChatAgent 
+        id="asst_p7n265weAL7Wv0aKNscuP25q" 
+        name="Analyst" 
+        threadId={id} 
+        logo="chart-creator-logo.png"
+        description="Give me your data in csv and I will help you with analyses and visualization"/>
     </DashboardShell>
   )
 }

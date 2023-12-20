@@ -51,7 +51,12 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-      <ChatAgent id="asst_YxvBcmhcuMPEHdyh8Vesdj4I" name="Hoodie Creator" logo="hoodie_creator_logo_small.png" threadId={id}/>
+      <ChatAgent 
+        id="asst_YxvBcmhcuMPEHdyh8Vesdj4I" 
+        name="Hoodie Creator" 
+        logo="hoodie_creator_logo_small.png" 
+        threadId={id}
+        description="I can help you creating a wonderful hoodie"/>
     </DashboardShell>
   )
 }

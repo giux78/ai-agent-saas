@@ -38,7 +38,7 @@ export default async function DashboardPage() {
         </EmptyPlaceholder>
       </div>
       */}
-       <h1 className="font-heading text-3xl leading-[1.1] md:text-5xl">
+       <h1 className="font-heading p-5 text-3xl leading-[1.1] md:text-5xl">
           Agents
         </h1>
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
         <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">X Marketing</h5>
         </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a tweet from your ideas or link or ...</p>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a tweet </p>
         <div className="grid grid-cols-2 gap-1">
             <Link
               href="https://chat.openai.com/g/g-y5mZf5t8C-x-marketing"

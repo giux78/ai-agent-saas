@@ -64,47 +64,94 @@ export default async function IndexPage() {
           </p>
 
           <h1 className="text-xl font-bold tracking-tight">
-                    Our first agent is a designer for creating the perfect hoodie
+                    We are still in alpha. Our first agents:
           </h1>
 
           <div
             className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
-            <Link href="/store" className={cn(buttonVariants({ size: "lg" }))}>
-              Visit the store 
+            <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }))}>
+              Agents
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
+      <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/dashboard/agent">
+        <img className="rounded-t-lg" src="/images/hoodie_creator_logo.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/dashboard/agent">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hoodie Creator</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a wonderful unique hoodie</p>
+        <div className="grid grid-cols-2 gap-1">
+        <Link href="/dashboard/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Hoodie Creator
             </Link>
             <Link
               href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
               target="_blank"
               rel="noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-4")}
+              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
             >
               <Icons.openai className="mr-2 h-4 w-4" />
-              <p>
-                <span className="hidden sm:inline-block">GPTs Hoodie </span>{" "}Creator{" "}
-              </p>
-            </Link>
-          </div>
-          <div className="flex items-center justify-center">         
-            <Link key="hoodie-c" 
-              href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator" 
-              className="group"
-              target="_blank"
-              rel="noreferrer">
-              <div className="aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7 w-full overflow-hidden rounded-lg bg-gray-200">
-                <img
-                  src="/images/hoodie_creator_logo_small.png"
-                  alt="hoodie creator logo"
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h2 className="mt-4 text-sm text-gray-700">Hoddie Creator Agent</h2>
-              {/*
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.default_price?.}</p>
-            */}
+                <span className="hidden sm:inline-block">GPTs </span>
             </Link>
         </div>
+    </div>
+</div>
+<div className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="#">
+        <img className="rounded-t-lg" src="/images/x-marketing-logo.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="#">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">X Marketing</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a tweet</p>
+        <div className="grid grid-cols-2 gap-1">
+            <Link
+              href="https://chat.openai.com/g/g-y5mZf5t8C-x-marketing"
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
+            >
+              <Icons.openai className="mr-2 h-4 w-4" />
+                <span className="hidden sm:inline-block">GPTs </span>
+            </Link>
+        </div>
+    </div>
+</div>
+<div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/dashboard/analyst">
+        <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/dashboard/analyst">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chart Creator</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create chart from your data</p>
+        <div className="grid grid-cols-2 gap-1">
+        <Link href="/dashboard/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Analyst
+            </Link>
+            <Link
+              href="https://chat.openai.com/g/g-urKpkuDUP-chart-creator"
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
+            >
+              <Icons.openai className="mr-2 h-4 w-4" />
+                <span className="hidden sm:inline-block">GPTs </span>
+            </Link>
+        </div>
+    </div>
+</div>
+</div>
         </div>
       </section>
 

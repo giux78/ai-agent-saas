@@ -51,11 +51,30 @@ const generate_image = async ({prompt}: ToGenerateImage) => {
   return response.json()
 }
 
+interface ToGenerateVideo {
+  image_url: string
+}
+
+const generate_video = async ({image_url}: ToGenerateVideo) => {
+  const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_video", {
+ // const response = await fetch("http://localhost:8000/openapi/generate_video", {
+   method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      'X-Auth': 'asdf1234567890',
+    },
+    body: JSON.stringify({
+      image_url : image_url
+    })
+  })
+  return response.json()
+}
+
 interface ToCreateProduct {prompt: string, 
   image_url: string,
   size: string,
   color: string
-  }
+}
 
 const create_product = async ({prompt, 
   image_url,
@@ -81,7 +100,8 @@ const create_product = async ({prompt,
 const availableFunctions = {
   tweet_campaigns,
   generate_image,
-  create_product
+  create_product,
+  generate_video,
 };
 
 

@@ -71,7 +71,7 @@ export default async function IndexPage() {
             className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
-            <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link href="/dashboard" className={cn(buttonVariants({ size: "xl" }))}>
               Agents
             </Link>
           </div>

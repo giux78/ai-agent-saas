@@ -41,7 +41,7 @@ export default async function DashboardPage() {
        <h1 className="p-5 font-heading text-3xl leading-[1.1] md:text-5xl">
           Agents
         </h1>
-      <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
+  <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
       <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="/dashboard/agent">
@@ -113,6 +113,23 @@ export default async function DashboardPage() {
             >
               <Icons.openai className="mr-2 h-4 w-4" />
                 <span className="hidden sm:inline-block">GPTs </span>
+            </Link>
+        </div>
+    </div>
+</div>
+<div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/dashboard/video">
+        <img className="rounded-t-lg" src="/images/video-creator-logo.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/dashboard/video">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Video Creator</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a video from a generated image</p>
+        <div className="grid grid-cols-2 gap-1">
+        <Link href="/dashboard/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Video Creator
             </Link>
         </div>
     </div>

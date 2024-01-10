@@ -20,8 +20,7 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
     <div className="mx-auto  px-4">
       <div className="rounded-lg border bg-background p-8">
         <p className="mb-2 leading-normal text-muted-foreground">
-          I m still in beta phase and we are opening {' '} <br/>
-          gradually. We will send an email as soon as we can{' '} <br/>
+          <h5>This is an alpha release be kind :)</h5> {' '} <br/>
           .....
         </p>
       </div>

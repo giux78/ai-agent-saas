@@ -14,12 +14,14 @@ import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { openaiClient } from '@/lib/openaiClient'
 import { useRef, useState } from 'react'
+import { Message } from 'ai'
 
 export interface PromptProps
-  extends Pick<UseChatHelpers, 'input' | 'setInput' | 'setMessages'> {
+  extends Pick<UseChatHelpers, 'input' | 'setInput' | 'setMessages' | 'messages'> {
   isLoading: boolean
   threadId?: string
-  assistantId?: string
+  assistantId?: string,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 //   // thread_scYI1OoDkYCedC83ouBoVFGU
@@ -30,7 +32,9 @@ export function PromptFormAssistant({
   isLoading,
   threadId,
   setMessages,
-  assistantId
+  assistantId,
+  setIsLoading,
+  messages,
 }: PromptProps) {
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
@@ -51,7 +55,11 @@ export function PromptFormAssistant({
     const data = new FormData()
     data.set('file', file!)
     data.append('question', question);
+    const ms :Message =  {'role' : 'user', 'content': question, "id" : `msg_${Math.random().toString(36).slice(2)}`}
 
+    messages.push(ms)
+    setMessages(messages)
+    setIsLoading(true)
     const response = await fetch(
       `/api/assistant/${assistantId}/${threadId}`, {
       method: "POST",
@@ -63,10 +71,11 @@ export function PromptFormAssistant({
       })*/
     })
     console.log("qua ci sono ");
-    const messages = await response.json();
-    console.log(messages);
-    setMessages(messages)
+    const messages_result = await response.json();
+    console.log(messages_result);
+    setMessages(messages_result)
     setFile(undefined); 
+    setIsLoading(false)
   }
 
   React.useEffect(() => {

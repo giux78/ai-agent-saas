@@ -88,6 +88,7 @@ export function ChatAgent({ id, initialMessages, name, className, threadId, logo
         setInput={setInput}
         threadId={threadId}
         setMessages={setMessages}
+        setIsLoading={setIsLoading}
       />
 
       <Dialog open={previewTokenDialog} onOpenChange={setPreviewTokenDialog}>

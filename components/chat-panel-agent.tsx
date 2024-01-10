@@ -18,6 +18,7 @@ export interface ChatPanelProps
   > {
   id?: string,
   threadId?: string
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export function ChatPanelAgent({
@@ -27,7 +28,8 @@ export function ChatPanelAgent({
   setInput,
   messages,
   threadId,
-  setMessages
+  setMessages,
+  setIsLoading,
 }: ChatPanelProps) {
   return (
     <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
@@ -41,7 +43,7 @@ export function ChatPanelAgent({
               className="bg-background"
             >
               <IconStop className="mr-2" />
-              Stop generating
+              Generating ...
             </Button>
           ) : (
             messages?.length > 0 && (
@@ -64,6 +66,8 @@ export function ChatPanelAgent({
             isLoading={isLoading}
             threadId={threadId}
             setMessages={setMessages}
+            setIsLoading={setIsLoading}
+            messages={messages}
           />
           <FooterText className="hidden sm:block" />
         </div>

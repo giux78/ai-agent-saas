@@ -17,6 +17,7 @@ export const env = createEnv({
     OPENAI_API_KEY: z.string().min(1),
     AWS_SERVER_PUBLIC_KEY: z.string().min(1),
     AWS_SERVER_SECRET_KEY: z.string().min(1),
+    REPLICATE_API_KEY: z.string().min(1), 
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -44,5 +45,6 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: process.env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
     AWS_SERVER_PUBLIC_KEY: process.env.AWS_SERVER_PUBLIC_KEY,
     AWS_SERVER_SECRET_KEY: process.env.AWS_SERVER_SECRET_KEY,
+    REPLICATE_API_KEY: process.env.REPLICATE_API_KEY,
   },
 })

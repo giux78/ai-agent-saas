@@ -7,9 +7,15 @@ import { openaiClient } from "@/lib/openaiClient"
 import { kv } from "@vercel/kv"
 import * as fs from 'fs';
 import { writeFile } from 'fs/promises'
-import { FileObject } from "openai/resources"
 import { s3 } from "@/lib/s3"
 import { PutObjectCommand } from "@aws-sdk/client-s3"
+import Replicate from "replicate";
+import { env } from "@/env.mjs"
+
+
+const replicate = new Replicate({
+  auth: env.REPLICATE_API_KEY
+});
 
 
 export const maxDuration = 300; 
@@ -55,9 +61,9 @@ interface ToGenerateVideo {
   image_url: string
 }
 
-const generate_video = async ({image_url}: ToGenerateVideo) => {
+const generate_video_old = async ({image_url}: ToGenerateVideo) => {
   const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_video", {
- // const response = await fetch("http://localhost:8000/openapi/generate_video", {
+ //const response = await fetch("http://localhost:8000/openapi/generate_video", {
    method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -68,6 +74,44 @@ const generate_video = async ({image_url}: ToGenerateVideo) => {
     })
   })
   return response.json()
+}
+
+import { v4 as uuidv4 } from 'uuid';
+
+const generate_video = async({image_url}: ToGenerateVideo) => {
+  const name = uuidv4().substring(0, 8);
+
+  // Download the image
+  const response = await fetch(image_url);
+  const buffer = Buffer.from(await response.arrayBuffer());
+
+  //fs.writeFileSync(`/tmp/${cont.image_file.file_id}.png`, image_data_buffer);
+  const uploadParams = {
+    Bucket: "hoodie-creator",
+    Key: `${name}.png`, // the name of the file in the bucket
+    Body: buffer,
+    ContentType: "image/png" // or the appropriate content type
+  };
+  const data = await s3.send(new PutObjectCommand(uploadParams));
+  const imageToVideo = `https://hoodie-creator.s3.eu-west-1.amazonaws.com/${name}.png`;
+
+
+  const output = await replicate.run(
+    "stability-ai/stable-video-diffusion:3f0457e4619daac51203dedb472816fd4af51f3149fa7a9e0b5ffcf1b8172438",
+    {
+      input: {
+        cond_aug: 0.02,
+        decoding_t: 7,
+        input_image: imageToVideo,
+        video_length: "14_frames_with_svd",
+        sizing_strategy: "maintain_aspect_ratio",
+        motion_bucket_id: 127,
+        frames_per_second: 6
+      }
+    }
+  );
+  console.log(output);
+  return { video_url : output } 
 }
 
 interface ToCreateProduct {prompt: string, 

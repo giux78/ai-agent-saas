@@ -6,6 +6,7 @@ import { ButtonScrollToBottom } from '@/components/button-scroll-to-bottom'
 import { IconRefresh, IconStop } from '@/components/ui/icons'
 import { FooterText } from '@/components/footer'
 import { PromptFormAssistant } from './prompt-form-assistant'
+import { Icons } from './shared/icons'
 
 export interface ChatPanelProps
   extends Pick<
@@ -42,8 +43,8 @@ export function ChatPanelAgent({
               onClick={() => stop()}
               className="bg-background"
             >
-              <IconStop className="mr-2" />
-              Generating ...
+              <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+              <p className='loading'> Generating</p>
             </Button>
           ) : (
             messages?.length > 0 && (

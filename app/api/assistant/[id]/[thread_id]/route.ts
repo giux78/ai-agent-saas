@@ -103,7 +103,7 @@ const generate_video = async({image_url}: ToGenerateVideo) => {
         cond_aug: 0.02,
         decoding_t: 7,
         input_image: imageToVideo,
-        video_length: "14_frames_with_svd",
+        video_length: "25_frames_with_svd_xt",
         sizing_strategy: "maintain_aspect_ratio",
         motion_bucket_id: 127,
         frames_per_second: 6

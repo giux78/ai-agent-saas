@@ -14,7 +14,6 @@ export default withAuth(
       if (isAuth) {
         return NextResponse.redirect(new URL("/agents", req.url))
       }
-
       return null
     }
 

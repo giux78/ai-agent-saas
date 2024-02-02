@@ -9,6 +9,7 @@ import { env } from "@/env.mjs"
 import { prisma } from "@/lib/db"
 import { resend } from "./email"
 
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
@@ -94,6 +95,11 @@ export const authOptions: NextAuthOptions = {
         picture: dbUser.image,
       }
     },
+  },
+  events: {
+    createUser: async ({ user }) => {
+      console.log(user);
+    }
   },
   // debug: process.env.NODE_ENV !== "production"
 }

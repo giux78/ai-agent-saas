@@ -27,7 +27,7 @@ export default async function DashboardPage() {
   
   if(!subscriptionPlan.isPaid){
     redirect(
-      "/dashboard/billing")
+      "/agents/billing")
   }
 
   const thread = await openaiClient.beta.threads.create(); 

@@ -32,6 +32,24 @@ export default async function IndexPage() {
               </span>
             </Balancer>
           </h1>
+          <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/agents/zefiro">
+        <img className="rounded-t-lg" src="/images/zefiro_small.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/agents/zefiro">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Zefiro</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Zefiro is an <Link href={"https://huggingface.co/giux78/zefiro-7b-sft-qlora-ITA-v0.5"}>open source</Link> LLMs for Italian language</p>
+        <div className="grid grid-cols-1 gap-1">
+        <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Chat with Zefiro
+            </Link>
+        </div>
+    </div>
+</div>
+
           <h1 className="text-xl font-bold tracking-tight">
               Other agents:
           </h1>

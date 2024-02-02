@@ -6,6 +6,10 @@
     "name": "businessos_",
     "url": "https://twitter.com/businessos_"
   },
+  "browser": {
+    "crypto": false,
+    "stream": false
+  },
   "scripts": {
     "dev": "next dev",
     "build": "contentlayer build && next build",

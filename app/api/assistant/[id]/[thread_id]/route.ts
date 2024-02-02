@@ -44,7 +44,7 @@ interface ToGenerateImage {
 }
 
 const generate_image = async ({prompt}: ToGenerateImage) => {
-  const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_image", {
+  /*const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_image", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +54,16 @@ const generate_image = async ({prompt}: ToGenerateImage) => {
         prompt : prompt
     })
   })
-  return response.json()
+  return response.json()*/
+  const response = await openaiClient.images.generate( {
+    model:"dall-e-3",
+    prompt: prompt,
+    size: "1024x1024",
+    quality:"standard",
+    n:1}
+  )
+  const imageUrl = response.data[0].url
+  return {"image_url" : imageUrl }
 }
 
 interface ToGenerateVideo {

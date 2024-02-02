@@ -96,7 +96,7 @@ export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
               {userId && subscriptionPlan ? (
                 offer.title === 'Starter' ? (
                   <Link
-                    href="/dashboard"
+                    href="/agents"
                     className={buttonVariants({
                       className: 'w-full',
                       variant: 'default',

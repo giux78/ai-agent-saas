@@ -10,6 +10,7 @@ import { openaiClient } from "@/lib/openaiClient"
 import { tr } from "date-fns/locale"
 import { ChatAgent } from "@/components/chat-agent"
 import { kv } from "@vercel/kv"
+import { getUserSubscriptionPlan } from "@/lib/subscription"
 
 export const metadata = {
   title: "Dashboard",
@@ -20,6 +21,13 @@ export default async function DashboardPage() {
 
   if (!user) {
     redirect(authOptions?.pages?.signIn || "/login")
+  }
+
+  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  
+  if(!subscriptionPlan.isPaid){
+    redirect(
+      "/agents/billing")
   }
 
   const thread = await openaiClient.beta.threads.create(); 
@@ -52,11 +60,11 @@ export default async function DashboardPage() {
       </div>
       */}
       <ChatAgent 
-        id="asst_cNad0b2mQe1bvj3HAMPgrld3" 
-        name="Video" 
-        threadId={id} 
-        logo="video-creator-logo.png"
-        description="Generate an image and a video from the image"/>
+        id="zefiro_v0.5" 
+        name="Zefiro" 
+        logo="zefiro_small.png" 
+        threadId={id}
+        description="Ciao sono Zefiro un LLM open source per l'italiano. Sono ancora una versione alpha in futuro offrirò più funzionalità"/>
     </DashboardShell>
   )
 }

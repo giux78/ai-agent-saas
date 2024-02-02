@@ -25,6 +25,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: z.string().min(1),
+    NEXT_PUBLIC_STRIPE_PRO_AGENTS_PLAN_ID: z.string().min(1),
   },
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
@@ -46,5 +47,8 @@ export const env = createEnv({
     AWS_SERVER_PUBLIC_KEY: process.env.AWS_SERVER_PUBLIC_KEY,
     AWS_SERVER_SECRET_KEY: process.env.AWS_SERVER_SECRET_KEY,
     REPLICATE_API_KEY: process.env.REPLICATE_API_KEY,
+    NEXT_PUBLIC_STRIPE_PRO_AGENTS_PLAN_ID: process.env.NEXT_PUBLIC_STRIPE_PRO_AGENTS_PLAN_ID,
+
+
   },
 })

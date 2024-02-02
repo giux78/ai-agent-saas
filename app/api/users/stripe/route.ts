@@ -6,7 +6,8 @@ import { stripe } from "@/lib/stripe"
 import { getUserSubscriptionPlan } from "@/lib/subscription"
 import { absoluteUrl } from "@/lib/utils"
 
-const billingUrl = absoluteUrl("/dashboard/billing")
+const billingUrl = absoluteUrl("/agents/billing")
+const successUrl = absoluteUrl("/agents");
 
 export async function POST(request: Request) {
   const res = await request.json();
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
     // The user is on the free plan.
     // Create a checkout session to upgrade.
     const stripeSession = await stripe.checkout.sessions.create({
-      success_url: billingUrl,
+      success_url: successUrl,
       cancel_url: billingUrl,
       payment_method_types: ["card"],
       mode: "subscription",

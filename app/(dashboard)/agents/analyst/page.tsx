@@ -10,6 +10,7 @@ import { openaiClient } from "@/lib/openaiClient"
 import { tr } from "date-fns/locale"
 import { ChatAgent } from "@/components/chat-agent"
 import { kv } from "@vercel/kv"
+import { getUserSubscriptionPlan } from "@/lib/subscription"
 
 export const metadata = {
   title: "Dashboard",
@@ -20,6 +21,13 @@ export default async function DashboardPage() {
 
   if (!user) {
     redirect(authOptions?.pages?.signIn || "/login")
+  }
+
+  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  
+  if(!subscriptionPlan.isPaid){
+    redirect(
+      "/dashboard/billing")
   }
 
   const thread = await openaiClient.beta.threads.create(); 

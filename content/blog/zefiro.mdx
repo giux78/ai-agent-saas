@@ -1,0 +1,45 @@
+---
+title: Zefiro
+description: An open source LLM for the Italian language
+date: "2023-11-22"
+image: /images/zefiro_small.png
+authors:
+  - giuxale
+---
+
+<Callout>
+  A LLM for the Italian Language  **Zefiro**
+</Callout>
+
+_In European tradition, a_ **_zephyr_** _is a light wind or a_ [_west wind_](https://en.wikipedia.org/wiki/West_wind)_, named after_ [_Zephyrus_](https://en.wikipedia.org/wiki/Zephyrus)_, the Greek god or personification of the west wind._
+
+[Zefiro](https://huggingface.co/giux78/zefiro-7b-beta-ITA-v0.1) is a fine-tuned version of the [Mistral](https://huggingface.co/mistralai/Mistral-7B-v0.1) model for the Italian language, sponsored by [Business Operating System](https://www.businessos.xyz) and an adaptation of the [Zephyr](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) model by Huggingface.
+
+### Model Details
+
+Zefiro is a porting of the [Zephyr](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) model to the Italian language using the wonderful recipes from [alignment-handbook](https://huggingface.co/alignment-handbook) . It has also taken inspiration and insights from the [Llamantino](https://huggingface.co/swap-uniba/LLaMAntino-2-chat-7b-hf-UltraChat-ITA) model developed by Università di Bari. For the implementation we combined different approaches from the two models mentioned but also from the wonderful community of open source.
+
+### Model description
+
+-   Model type: A 7B parameter GPT-like model fine-tuned on a mix of publicly available, synthetic datasets.
+-   Language(s) (NLP): Primarily Italian
+-   License: Apache 2
+-   Fine tuned from model: [mistralai/Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1)
+-   Developed by: [giux78](https://alessandroercolani.webflow.io/)
+-   Funded by: [Business Operating System](https://www.businessos.xyz/)
+
+I have also released a quantized version [zefiro-7b-beta-ITA-v0.1-GGUF](https://huggingface.co/giux78/zefiro-7b-beta-ITA-v0.1-GGUF) that can run on CPU based hardware, using fantastic libraries as [llama.cpp](https://github.com/ggerganov/llama.cpp) or various LLM based GUI like O[llama](https://ollama.ai/), [lm-studio.](https://lmstudio.ai/)
+
+In the next release I will try to improve the model using a DPO strategy and release a tuned version of smaller and bigger models like Mixtral and phi-2. I’m also investigating how to evaluate and compare the output models and the different strategies.
+
+Honestly, I’m also looking for sponsored computation (GPU) capacity for training and releasing more datasets and models. If you know someone that can help spread the word …
+
+<Image
+  src="/images/zefiro_small.png"
+  width="100"
+  height="100"
+  alt="Image"
+/>
+
+
+Contact me if you are interested ale.ercolani@gmail.com

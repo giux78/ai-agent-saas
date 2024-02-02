@@ -35,14 +35,14 @@ export default async function BillingPage() {
           <Icons.warning />
           <AlertTitle>This is still in alpha</AlertTitle>
           <AlertDescription>
-            Your business operating system is a set of agents for running your business{" "}
+            GPUs cost and we ask for a little fee for giving access to our agents{" "}
             <a
-              href="https://businessos.xyz"
+              href="https://businessos.xyz/agents"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-8"
             >
-              Business Operating System
+              Agents
             </a>
             .
           </AlertDescription>

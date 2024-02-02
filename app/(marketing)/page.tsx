@@ -8,26 +8,9 @@ import { Icons } from "@/components/shared/icons"
 import { env } from "@/env.mjs"
 
 export default async function IndexPage() {
-  const { stargazers_count: stars } = await fetch(
-    "https://api.github.com/repos/mickasmt/next-saas-stripe-starter",
-    {
-      ...(env.GITHUB_OAUTH_TOKEN && {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      }),
-      // data will revalidate every hour
-      next: { revalidate: 3600 },
-    },
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e));
-
-
   return (
     <>
-      <section className="space-y-6 pb-12 pt-16 lg:py-28">
+      <section className="space-y-6 pb-12 pt-16 lg:py-12">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
           <Link
             href="https://twitter.com/businessos_"
@@ -43,51 +26,47 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-               Your {" "}
+               Our latest agent: {" "}
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
-                Business Operating System
+                Zefiro
               </span>
             </Balancer>
           </h1>
-
-          <p
-            className="max-w-[42rem] animate-fade-up leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8"
-            style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
-          >
-            <Balancer>
-            A set of autonomous agents for running a company on your behalf. 
-            We are creating a serie of interconnected agents able to start a company, create products, 
-            sell through negotiations with clients, handle social media and marketing 
-            campaigns, keep track of the financial records and everything in the need all by itself. 
-            We will share the journey and the tecnology in the open.   
-            </Balancer>
-          </p>
+          <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/agents/zefiro">
+        <img className="rounded-t-lg" src="/images/zefiro_small.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/agents/zefiro">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Zefiro</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Zefiro is an <Link href={"https://"}>open source</Link> LLMs for Italian language</p>
+        <div className="grid grid-cols-1 gap-1">
+        <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        Chat with Zefiro
+            </Link>
+        </div>
+    </div>
+</div>
 
           <h1 className="text-xl font-bold tracking-tight">
-                    We are still in alpha. Our first agents:
+              Other agents:
           </h1>
 
-          <div
-            className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
-            style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
-          >
-            <Link href="/dashboard" className={cn(buttonVariants({ size: "xl" }))}>
-              Agents
-            </Link>
-          </div>
           <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
       <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/agent">
+    <a href="/agents/agent">
         <img className="rounded-t-lg" src="/images/hoodie_creator_logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/agent">
+        <a href="/agents/agent">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hoodie Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a wonderful unique hoodie</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Hoodie Creator
             </Link>
             <Link
@@ -127,16 +106,16 @@ export default async function IndexPage() {
 </div>
 <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/analyst">
+    <a href="/agents/analyst">
         <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/analyst">
+        <a href="/agents/analyst">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chart Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create chart from your data</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Analyst
             </Link>
             <Link
@@ -153,22 +132,34 @@ export default async function IndexPage() {
 </div>
 <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/video">
+    <a href="/agents/video">
         <img className="rounded-t-lg" src="/images/video-creator-logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/video">
+        <a href="/agents/video">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Video Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a video from a generated image</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Video Creator
             </Link>
         </div>
     </div>
 </div>
 </div>
+<p
+            className="max-w-[42rem] animate-fade-up leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8"
+            style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
+          >
+            <Balancer>
+            A set of autonomous agents for running a company on your behalf. 
+            We are creating a serie of interconnected agents able to start a company, create products, 
+            sell through negotiations with clients, handle social media and marketing 
+            campaigns, keep track of the financial records and everything in the need all by itself. 
+            We will share the journey and the tecnology in the open.   
+            </Balancer>
+          </p>
         </div>
       </section>
 

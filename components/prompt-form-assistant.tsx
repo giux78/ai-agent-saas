@@ -60,16 +60,28 @@ export function PromptFormAssistant({
     messages.push(ms)
     setMessages(messages)
     setIsLoading(true)
-    const response = await fetch(
-      `/api/assistant/${assistantId}/${threadId}`, {
-      method: "POST",
-      //headers: {
-      //  "Content-Type": "application/json",
-      //},
-      body: data /*JSON.stringify({
-        "question" : question
-      })*/
-    })
+    let response;
+    if(assistantId === 'zefiro_v0.5'){
+      response = await fetch(
+        `/api/zefiro`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(messages)
+      })
+    } else {
+      response = await fetch(
+        `/api/assistant/${assistantId}/${threadId}`, {
+        method: "POST",
+        //headers: {
+        //  "Content-Type": "application/json",
+        //},
+        body: data /*JSON.stringify({
+          "question" : question
+        })*/
+      })
+  }
     console.log("qua ci sono ");
     const messages_result = await response.json();
     console.log(messages_result);

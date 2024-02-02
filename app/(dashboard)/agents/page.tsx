@@ -42,18 +42,35 @@ export default async function DashboardPage() {
           Agents
         </h1>
   <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
+  <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
+        >
+    <a href="/agents/zefiro">
+        <img className="rounded-t-lg" src="/images/zefiro_small.png" alt="" />
+    </a>
+    <div className="p-5">
+        <a href="/agents/zefiro">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Zefiro</h5>
+        </a>
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Zefiro is an open source LLMs for Italian language</p>
+        <div className="grid grid-cols-2 gap-1">
+        <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+          Zefiro
+        </Link>
+        </div>
+    </div>
+</div>
       <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/agent">
+    <a href="/agents/agent">
         <img className="rounded-t-lg" src="/images/hoodie_creator_logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/agent">
+        <a href="/agents/agent">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hoodie Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a wonderful unique hoodie</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Hoodie Creator
             </Link>
             <Link
@@ -93,16 +110,16 @@ export default async function DashboardPage() {
 </div>
 <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/analyst">
+    <a href="/agents/analyst">
         <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/analyst">
+        <a href="/agents/analyst">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chart Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create chart from your data</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Analyst
             </Link>
             <Link
@@ -119,16 +136,16 @@ export default async function DashboardPage() {
 </div>
 <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/dashboard/video">
+    <a href="/agents/video">
         <img className="rounded-t-lg" src="/images/video-creator-logo.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/dashboard/video">
+        <a href="/agents/video">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Video Creator</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a video from a generated image</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/dashboard/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+        <Link href="/agents/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
         Video Creator
             </Link>
         </div>

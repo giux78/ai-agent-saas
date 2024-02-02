@@ -10,6 +10,7 @@ import { openaiClient } from "@/lib/openaiClient"
 import { tr } from "date-fns/locale"
 import { ChatAgent } from "@/components/chat-agent"
 import { kv } from "@vercel/kv"
+import { getUserSubscriptionPlan } from "@/lib/subscription"
 
 export const metadata = {
   title: "Dashboard",
@@ -20,6 +21,13 @@ export default async function DashboardPage() {
 
   if (!user) {
     redirect(authOptions?.pages?.signIn || "/login")
+  }
+
+  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  
+  if(!subscriptionPlan.isPaid){
+    redirect(
+      "/agents/billing")
   }
 
   const thread = await openaiClient.beta.threads.create(); 
@@ -56,7 +64,7 @@ export default async function DashboardPage() {
         name="Hoodie Creator" 
         logo="hoodie_creator_logo_small.png" 
         threadId={id}
-        description="I can help you creating a wonderful hoodie"/>
+        description="I can help you creating a wonderful hoodie, ask me to create an image that will become the "/>
     </DashboardShell>
   )
 }

@@ -23,6 +23,7 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["@prisma/client"],
   },
+  optimizeFonts: false,
 }
 
 const withContentlayer = createContentlayerPlugin({

@@ -68,7 +68,7 @@ export function BillingButton({ subscriptionPlan }: BillingFormProps) {
         {isLoading && (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         )}
-        {subscriptionPlan.isPaid ?  "Manage subscription" : "Upgrade"}
+        {subscriptionPlan.isPaid ?  "Manage subscription" : "Subscribe"}
         
       </Button>
     </form>
@@ -91,14 +91,7 @@ export function BillingForm({
       </CardHeader>
       <CardContent>{subscriptionPlan.description}</CardContent>
       <CardFooter className="flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0">
-       {/*
-        <Link
-          href="/pricing"
-          className={cn(buttonVariants())}
-        >
-          {subscriptionPlan.isPaid ? "Manage Subscription" : "Upgrade now"}
-        </Link>
-        */}
+
         <BillingButton subscriptionPlan={subscriptionPlan} />
         
         {subscriptionPlan.isPaid ? (

@@ -35,7 +35,7 @@ export default async function BillingPage() {
           <Icons.warning />
           <AlertTitle>This is still in alpha</AlertTitle>
           <AlertDescription>
-            GPUs cost and we ask for a little fee for giving access to our agents{" "}
+            GPUs and Apis cost! We ask for a little fee for giving access to our {" "}
             <a
               href="https://businessos.xyz/agents"
               target="_blank"

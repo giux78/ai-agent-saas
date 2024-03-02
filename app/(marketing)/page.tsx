@@ -10,7 +10,7 @@ import { env } from "@/env.mjs"
 export default async function IndexPage() {
   return (
     <>
-      <section className="space-y-6 pb-12 pt-16 lg:py-12">
+          <section className="space-y-6 pb-12 pt-16 lg:py-12">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
           <Link
             href="https://twitter.com/businessos_"
@@ -26,166 +26,140 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-               Our latest agent: {" "}
+               We build LLM {" "}
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
-                Zefiro
+                Agents
               </span>
             </Balancer>
           </h1>
-          <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
-        >
-    <a href="/agents/zefiro">
-        <img className="rounded-t-lg" src="/images/zefiro_small.png" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="/agents/zefiro">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Zefiro</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Zefiro is an <Link href={"https://huggingface.co/giux78/zefiro-7b-sft-qlora-ITA-v0.5"}>open source</Link> LLMs for Italian language</p>
-        <div className="grid grid-cols-1 gap-1">
-        <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-        Chat with Zefiro
+          </div>
+          </section>
+          <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
+                Zefiro
+              </h1>
+              <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Is a 7b  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
+                href="https://huggingface.co/mii-community/zefiro-7b-dpo-ITA" target="_blank">open source</Link> model fine tuned for speacking the Italian language. It one of the best Italian open source models.
+              </p>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  Chat with Zefiro
+              </Link>
+              </div>
+            </div>
+            <img
+              alt="Hero image"
+              className="aspect-video overflow-hidden rounded-xl object-cover object-center"
+              height="310"
+              src="/images/zefiro_small.png"
+              width="500"
+            />
+          </div>
+        </section>
+        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+              <img
+                alt="Image"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                height="310"
+                src="/images/hoodie_creator_logo.png"
+                width="500"
+              />
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Hoodie Creator
+                  </h2>
+                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Enjoy creating customized hoodie
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Link href="/agents/agent" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  Hoodie Creator
+                </Link>
+                <Link
+                  href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-4")}
+                >
+                  <Icons.openai className="mr-2 h-4 w-4" />
+                    <span className="hidden sm:inline-block">GPTs </span>
+                </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
+                Video Creator
+              </h1>
+              <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Build simple estetic videos
+              </p>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link href="/agents/video" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+        Video Creator
             </Link>
-        </div>
-    </div>
-</div>
-
-          <h1 className="text-xl font-bold tracking-tight">
-              Other agents:
-          </h1>
-
-          <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
-      <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
-        >
-    <a href="/agents/agent">
-        <img className="rounded-t-lg" src="/images/hoodie_creator_logo.png" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="/agents/agent">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hoodie Creator</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a wonderful unique hoodie</p>
-        <div className="grid grid-cols-2 gap-1">
-        <Link href="/agents/agent" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-        Hoodie Creator
-            </Link>
-            <Link
-              href="https://chat.openai.com/g/g-QWziThdPK-hoodie-creator"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
-            >
-              <Icons.openai className="mr-2 h-4 w-4" />
-                <span className="hidden sm:inline-block">GPTs </span>
-            </Link>
-        </div>
-    </div>
-</div>
-<div className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
-        >
-    <a href="#">
-        <img className="rounded-t-lg" src="/images/x-marketing-logo.png" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">X Marketing</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a tweet</p>
-        <div className="grid grid-cols-2 gap-1">
-            <Link
-              href="https://chat.openai.com/g/g-y5mZf5t8C-x-marketing"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
-            >
-              <Icons.openai className="mr-2 h-4 w-4" />
-                <span className="hidden sm:inline-block">GPTs </span>
-            </Link>
-        </div>
-    </div>
-</div>
-<div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
-        >
-    <a href="/agents/analyst">
-        <img className="rounded-t-lg" src="/images/chart-creator-logo.png" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="/agents/analyst">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chart Creator</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create chart from your data</p>
-        <div className="grid grid-cols-2 gap-1">
-        <Link href="/agents/analyst" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+              </div>
+            </div>
+            <img
+              alt="Hero image"
+              className="aspect-video overflow-hidden rounded-xl object-cover object-center"
+              height="310"
+              src="/images/video-creator-logo.png"
+              width="500"
+            />
+          </div>
+        </section>
+        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+              <img
+                alt="Image"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                height="310"
+                src="/images/chart-creator-logo.png"
+                width="500"
+              />
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Chart Creator
+                  </h2>
+                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Create chart from your files
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Link href="/agents/analyst" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
         Analyst
             </Link>
             <Link
               href="https://chat.openai.com/g/g-urKpkuDUP-chart-creator"
               target="_blank"
               rel="noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "px-4")}
             >
               <Icons.openai className="mr-2 h-4 w-4" />
                 <span className="hidden sm:inline-block">GPTs </span>
             </Link>
-        </div>
-    </div>
-</div>
-<div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
-        >
-    <a href="/agents/video">
-        <img className="rounded-t-lg" src="/images/video-creator-logo.png" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="/agents/video">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Video Creator</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Create a video from a generated image</p>
-        <div className="grid grid-cols-2 gap-1">
-        <Link href="/agents/video" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-        Video Creator
-            </Link>
-        </div>
-    </div>
-</div>
-</div>
-<p
-            className="max-w-[42rem] animate-fade-up leading-normal text-muted-foreground opacity-0 sm:text-xl sm:leading-8"
-            style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
-          >
-            <Balancer>
-            A set of autonomous agents for running a company on your behalf. 
-            We are creating a serie of interconnected agents able to start a company, create products, 
-            sell through negotiations with clients, handle social media and marketing 
-            campaigns, keep track of the financial records and everything in the need all by itself. 
-            We will share the journey and the tecnology in the open.   
-            </Balancer>
-          </p>
-        </div>
-      </section>
-
-
-{/*
-      <section
-        className="animate-fade-up py-16 text-zinc-500 opacity-0 dark:text-zinc-400"
-        style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}
-      >
-        <div className="container mx-auto">
-          <h2 className="text-center text-sm font-semibold uppercase">Powered by</h2>
-
-          <div className="my-7 flex flex-wrap items-center justify-center gap-10 gap-y-8 lg:gap-14">
-            {features.map((feature) => (
-              <Link
-                key={feature.title} href={feature.href}
-                className="flex flex-col items-center transition duration-300 hover:text-black dark:hover:text-white"
-                target="_blank"
-              >
-                {feature.icon}
-              </Link>
-            ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-            */}
+        </section>
+
+
+
     </>
   )
 }

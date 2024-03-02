@@ -28,5 +28,10 @@ export const dashboardConfig: DashboardConfig = {
       href: "/agents/settings",
       icon: "settings",
     },
+    {
+      title: "API coming soon",
+      href: "#",
+      icon: "waypoints",
+    },
   ],
 }

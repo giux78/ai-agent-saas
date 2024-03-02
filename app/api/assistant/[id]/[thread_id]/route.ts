@@ -26,16 +26,17 @@ interface ToTweetCampaign {
 }
 
 const tweet_campaigns = async ({tweet, origin_url=""} :ToTweetCampaign) => {
-  const response = await fetch("https://hoodie-creator.vercel.app/openapi/tweet_campaigns", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      'X-Auth': 'asdf1234567890',
-    },
-    body: JSON.stringify({
-        tweet : tweet
+  //const response = await fetch("https://hoodie-creator.vercel.app/openapi/tweet_campaigns", {
+  const response = await fetch("https://qod.io/openapi/tweet_campaigns", {  
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'X-Auth': 'asdf1234567890',
+      },
+      body: JSON.stringify({
+          tweet : tweet
+      })
     })
-  })
   return response.json()
 }
 
@@ -44,7 +45,9 @@ interface ToGenerateImage {
 }
 
 const generate_image = async ({prompt}: ToGenerateImage) => {
-  /*const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_image", {
+ // const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_image", {
+ // const response = await fetch("http://localhost:8000/openapi/generate_image", {   
+  const response = await fetch("https://qod.io/openapi/generate_image", {   
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +57,8 @@ const generate_image = async ({prompt}: ToGenerateImage) => {
         prompt : prompt
     })
   })
-  return response.json()*/
+  return response.json()
+  /*
   const response = await openaiClient.images.generate( {
     model:"dall-e-3",
     prompt: prompt,
@@ -64,6 +68,7 @@ const generate_image = async ({prompt}: ToGenerateImage) => {
   )
   const imageUrl = response.data[0].url
   return {"image_url" : imageUrl }
+  */
 }
 
 interface ToGenerateVideo {
@@ -71,17 +76,18 @@ interface ToGenerateVideo {
 }
 
 const generate_video_old = async ({image_url}: ToGenerateVideo) => {
-  const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_video", {
+ // const response = await fetch("https://hoodie-creator.vercel.app/openapi/generate_video", {
  //const response = await fetch("http://localhost:8000/openapi/generate_video", {
-   method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      'X-Auth': 'asdf1234567890',
-    },
-    body: JSON.stringify({
-      image_url : image_url
+  const response = await fetch("https://qod.io/openapi/generate_video", {
+    method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'X-Auth': 'asdf1234567890',
+      },
+      body: JSON.stringify({
+        image_url : image_url
+      })
     })
-  })
   return response.json()
 }
 
@@ -134,7 +140,8 @@ const create_product = async ({prompt,
   size,
   color
   }: ToCreateProduct) => {
-  const response = await fetch("https://hoodie-creator.vercel.app/openapi/product", {
+  //const response = await fetch("https://hoodie-creator.vercel.app/openapi/product", {
+  const response = await fetch("http://qod.io/openapi/product", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -230,7 +237,7 @@ export async function POST(
   const retrieveRun = async () => {
     let keepRetrievingRun;
 
-    while (myRun.status !== "completed") {
+    while ((myRun.status !== "completed") && (myRun.status !== "expired")) {
       keepRetrievingRun = await openaiClient.beta.threads.runs.retrieve(
         threadId,
         myRun.id
@@ -327,8 +334,8 @@ export async function POST(
       }
     }))
 
-    await kv.set(`thread:${threadId}:messages`, JSON.stringify(messagesA));
-    return new Response(JSON.stringify( messagesA.reverse()))
+    await kv.set(`thread:${threadId}:messages`, JSON.stringify(messagesA.reverse()));
+    return new Response(JSON.stringify( messagesA))
 
   };
   const res = await waitForAssistantMessage();

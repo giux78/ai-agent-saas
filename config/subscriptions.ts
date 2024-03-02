@@ -3,10 +3,10 @@ import { env } from "@/env.mjs"
 
 export const pricingData: SubscriptionPlan[] = [
   {
-    title: 'Starter',
-    description: 'For Beginners',
+    title: 'Free',
+    description: 'Free plan we have only access to three chats',
     benefits: [
-      'Up to 100 monthly posts',
+      'Up to 3 chats',
       'Basic analytics and reporting',
       'Access to standard templates',
     ],
@@ -27,7 +27,7 @@ export const pricingData: SubscriptionPlan[] = [
   },
   {
     title: 'Pro',
-    description: 'Unlock Advanced Features',
+    description: 'You have access to our agents',
     benefits: [
       'Up to 500 monthly posts',
       'Advanced analytics and reporting',
@@ -40,11 +40,12 @@ export const pricingData: SubscriptionPlan[] = [
       'Limited access to business resources.',
     ],
     prices: {
-      monthly: 29.90,
+      monthly: 9.99,
       yearly: 300.00,
     },
     stripeIds: {
-      monthly: env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PLAN_ID,
+     //monthly: env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PLAN_ID,
+      monthly: env.NEXT_PUBLIC_STRIPE_PRO_AGENTS_PLAN_ID,
       yearly: env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID,
     },
   },

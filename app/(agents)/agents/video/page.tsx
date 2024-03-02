@@ -32,7 +32,7 @@ export default async function DashboardPage() {
 
   const thread = await openaiClient.beta.threads.create(); 
   const id = thread.id
-  const assistantId = {assistant_id : "asst_YxvBcmhcuMPEHdyh8Vesdj4I"}
+  const assistantId = {assistant_id : "asst_cNad0b2mQe1bvj3HAMPgrld3"}
   const newThread = {...thread, assistantId}
   await kv.hset(`thread:${thread.id}`, JSON.parse(JSON.stringify(newThread)));
   await kv.zadd(`user:thread:${user.email}`, {

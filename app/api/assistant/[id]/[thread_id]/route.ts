@@ -141,7 +141,7 @@ const create_product = async ({prompt,
   color
   }: ToCreateProduct) => {
   //const response = await fetch("https://hoodie-creator.vercel.app/openapi/product", {
-  const response = await fetch("http://qod.io/openapi/product", {
+  const response = await fetch("https://qod.io/openapi/product", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -9,6 +9,8 @@ export async function POST(request: Request,
   const messages  = await request.json();
   const threadId = params.thread_id;
   const assistantId = params.id;
+
+  
   
   try {
     const session = await getServerSession(authOptions)
@@ -17,20 +19,38 @@ export async function POST(request: Request,
       return new Response(null, { status: 403 })
     }
 
-  //  const zefiro = await fetch("http://localhost:8000/openapi/zefiro/v0.5/generate", {
+  const apiKey = await kv.get(`user:${session?.user.email}:api`) as string;
+
+  const zefiro = await fetch("http://localhost:8000/openapi/zefiro/v0.5/generate", {
   //  const zefiro = await fetch("https://52.5.233.79/openapi/zefiro/v0.5/generate", { 
-  const zefiro = await fetch("https://qod.io/openapi/zefiro/v0.5/generate", { 
+  //const zefiro = await fetch("https://qod.io/openapi/zefiro/v0.5/generate", { 
       method: "POST",
            headers: {
              "Content-Type": "application/json",
-             'X-Auth': 'asdf1234567890',
+             'X-Auth': apiKey,
            },
            body: JSON.stringify(messages)
          })
     
     const messages_ = await zefiro.json()
     console.log(messages_)
-    await kv.set(`thread:${threadId}:messages`, JSON.stringify(messages_));
+
+    if(Array.isArray(messages_)){
+      /*let tokenFromMess = 0 
+      for (const idx in messages_){
+        tokenFromMess = tokenFromMess + Math.round(messages_[idx]['content'].split(' ').length * 2 * 1.5)
+      }
+      const info = await  kv.hgetall(`api:${apiKey}`)
+      let nToken = 100000
+      if("n_token" in info!){
+        nToken = info['n_token'] as number
+      }
+      let count = nToken - tokenFromMess
+      await kv.hset(`api:${apiKey}`, {'n_token' : count})
+      // remove system prompt
+      messages_.shift()*/
+      await kv.set(`thread:${threadId}:messages`, JSON.stringify(messages_));
+    }
 
     return new Response(JSON.stringify(messages_))
   } catch (error) {

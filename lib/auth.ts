@@ -8,7 +8,8 @@ import MagicLinkEmail from "@/emails/magic-link-email"
 import { env } from "@/env.mjs"
 import { prisma } from "@/lib/db"
 import { resend } from "./email"
-
+import { kv } from "@vercel/kv"
+import Crypto from "crypto"
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -98,7 +99,12 @@ export const authOptions: NextAuthOptions = {
   },
   events: {
     createUser: async ({ user }) => {
+      const apiKey = Crypto.randomBytes(30)
+                 .toString('base64')
+                 .slice(0, 30) 
       console.log(user);
+      kv.hset(`api:${apiKey}`, JSON.parse(JSON.stringify({'uid' : user.email, 'n_token' : 100000})))
+      kv.set(`user:${user.email}:api`, apiKey)
     }
   },
   // debug: process.env.NODE_ENV !== "production"

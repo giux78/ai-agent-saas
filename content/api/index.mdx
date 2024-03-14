@@ -1,0 +1,83 @@
+---
+title: Zefiro API
+description: Description for calling Zefiro APIs  and some suggestions
+---
+
+<Callout>
+
+The project is just started you can follow updates on Twitter [@giux78](https://twitter.com/giux78).
+
+</Callout>
+
+<Callout>
+
+You need to be [subscribed](/agents/billing)  to a pay plan for using the APIs
+
+</Callout>
+
+## Example
+
+```bash
+curl -X 'POST' \
+  'https://qod.io/openapi/zefiro/v0.5/generate' \
+  -H 'accept: application/json' \
+  -H 'X-Auth: YOURAPIKEY' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "content": "Sei un assistente onesto e rispettoso",
+    "role": "assistant",
+    "id" : "sys"
+
+  },
+  {
+    "content": "Mi consigli una ricetta per la cena",
+    "role": "user"
+  }
+]'
+```
+
+### API KEY
+
+You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 
+
+## Features
+
+Select one agents
+
+<div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+
+<Card href="/
+api/documentation">
+
+### Documentation
+
+Hoodie Creator Agent
+
+</Card>
+
+<Card href="/docs/marketing" disabled>
+
+### Marketing 
+
+The Marketing Agent
+
+</Card>
+
+<Card href="/docs/app" disabled>
+
+### Finance
+
+The financing agent
+
+</Card>
+
+<Card href="/docs/blog" disabled>
+
+###  Memory
+
+Cross memory between agents
+
+</Card>
+
+</div>

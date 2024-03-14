@@ -1,0 +1,44 @@
+---
+title: The trilogy of Zefiro
+description: A set og  open source LLMs for the Italian language
+date: "2024-03-10"
+image: /images/trilogy.png
+authors:
+  - giuxale
+---
+
+<Callout>
+  The trilogy of Zefiro  **Zefiro**
+</Callout>
+
+_In European tradition, a_ **_zephyr_** _is a light wind or a_ [_west wind_](https://en.wikipedia.org/wiki/West_wind)_, named after_ [_Zephyrus_](https://en.wikipedia.org/wiki/Zephyrus)_, the Greek god or personification of the west wind._
+
+The trilogy of Zefiro is a set of three open sourced #llms suited for speaking the Italian Language made by following the [Zephyr](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) recipes from [alignment handbook](https://github.com/huggingface/alignment-handbook) by#HuggingFace.
+
+*   [**Zefiro base**](https://huggingface.co/mii-community/zefiro-7b-base-ITA)**:** is a continual pre-trained LLM model for the Italian language based on [Mistral](https://huggingface.co/mistralai/Mistral-7B-v0.1). I used a random subset of data from [oscar\_it](https://huggingface.co/datasets/oscar/viewer/unshuffled_deduplicated_it) and [wikipedia\_it](https://huggingface.co/datasets/wikimedia/wikipedia/viewer/20231101.it). Unfortunately I lost the code. The story is also funny I left a [runpod](https://runpod.io/) cluster of H100s for more days than I prevented and I paid a very big bill. So once I got it, I saved the model on huggingface and stoped the cluster loosing some horrible code and the data. But I love the fact that now Zefiro base is a sort alien, I don’t know where it comes from.
+*   [**Zefiro SFT**](https://huggingface.co/mii-community/zefiro-7b-base-ITA)**:** is a supervised finetuned version of Zefiro Base where I used the [recipe](https://github.com/huggingface/alignment-handbook/blob/main/recipes/zephyr-7b-beta/sft/config_qlora.yaml) from the alignment handobook using the qlora code from #Huggingface. The dataset I used is [ultrafeedback-ita](https://huggingface.co/datasets/mii-community/ultrafeedback-translated-ita) a translation ENG to ITA of the popular [UltraChat](https://huggingface.co/datasets/stingning/ultrachat) dataset using different translation tools. [Zefiro SFT](https://huggingface.co/mii-community/zefiro-7b-base-ITA) can be reproduced adapting the recipe to the dataset, mainly I only change starting models and some parameters.
+*   [**Zefiro DPO**](https://huggingface.co/mii-community/zefiro-7b-dpo-ITA)**:** is an aligned version of Zefiro SFT the code can be seen in this [colab](https://colab.research.google.com/drive/1styiJ7qaSdax8_YbA1uASVb9myihIOHB?usp=sharing). It uses as dataset the [ultrafeedback preference](http://giux78/ultrafeedback-binarized-preferences-cleaned-ita-ready) dataset translated ENG to ITA using [argostranslate](https://github.com/argosopentech/argos-translate). I’m enough proud of the final result.
+
+For the evaluation we used [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) from EleutherAI that provides many pre configured tasks. Since, in Italian, there were some missing tasks we contributed with a series of PRs mainly for multilingual m\_mmul and arc\_c. We are very proud of this contribution to an open source project. Below the list of tasks supported for Italian and other languages:
+
+*   xcopa\_it
+*   hellaswag\_it
+*   lambada\_openai\_mt\_it
+*   belebele\_ita\_Latn
+*   arc\_it
+*   m\_mmul\_it
+
+The command can be launch as:
+
+```
+lm-eval - model hf - model_args pretrained=giux78/zefiro-7b-dpo-qlora-ITA-v0.7 - tasks xcopa_it,hellaswag_it,lambada_openai_mt_it,belebele_ita_Latn,arc_it,m_mmul_it - device cuda:0 - batch_size 8
+```
+
+
+In the next iteration we will also evaluate on an Italian version of MT-Bench we are working on it.
+
+We are also maintaining the [Italian leaderboard](https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard).
+
+For evaluating the Zefiro model evolutions we used, mainly, three tasks **arc-c**, **hellaswag** and **mmul** because they are also used for the Italian language in the [mixtral](https://mistral.ai/news/mixtral-of-experts/) paper.
+
+The Zefiro series, as in the table above, is not so far from the best 70 billion open source models on Italian tasks. As you can see on the average column in the table, and is better or very close in some tasks. I’m sure with the help of the community we will be able to create a small better model for the Italian language. If you want to help join the [mii-community](https://huggingface.co/mii-community) on huggingface or our [discord](https://discord.gg/hx8mdgrGkQ).

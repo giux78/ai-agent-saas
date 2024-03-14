@@ -3,8 +3,8 @@ import { DocsConfig } from "types"
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Documentation",
-      href: "/docs",
+      title: "Api",
+      href: "/api",
     },
     {
       title: "Guides",
@@ -17,7 +17,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Introduction",
-          href: "/docs",
+          href: "/api",
         },
       ],
     },
@@ -26,17 +26,17 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Introduction",
-          href: "/docs/documentation",
+          href: "/api/documentation",
           disabled: true,
         },
         {
           title: "Agents",
-          href: "/docs/agents",
+          href: "/api/agents",
           disabled: true,
         },
         {
           title: "Memory",
-          href: "/docs/memory",
+          href: "/api/memory",
           disabled: true,
         }
 
@@ -47,7 +47,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "Introduction",
-          href: "/docs/api",
+          href: "/api/api",
           disabled: true,
         },
       ],

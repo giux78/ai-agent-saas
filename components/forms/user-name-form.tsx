@@ -24,12 +24,14 @@ import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/shared/icons"
 
 interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  user: Pick<User, "id" | "name">
+  user: Pick<User, "id" | "name">,
+  apikey: string,
+  token?: number
 }
 
 type FormData = z.infer<typeof userNameSchema>
 
-export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
+export function UserNameForm({ user, apikey, token, className, ...props }: UserNameFormProps) {
   const router = useRouter()
   const {
     handleSubmit,
@@ -115,6 +117,56 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
             <span>Save</span>
           </button>
         </CardFooter>
+      </Card>
+      <Card>
+      <CardHeader>
+          <CardTitle>Your apikey</CardTitle>
+          <CardDescription>
+            The apikey for calling the api
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="apikey">
+              Apikey
+            </Label>
+            <Input
+              id="apikey"
+              className="w-[400px]"
+              size={32}
+              value={apikey}
+              disabled
+            />
+            {errors?.name && (
+              <p className="px-1 text-xs text-red-600">{errors.name.message}</p>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+      <Card>
+      <CardHeader>
+          <CardTitle>Token available monthly</CardTitle>
+          <CardDescription>
+            Number of token still available monthly
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="token">
+              Number of token
+            </Label>
+            <Input
+              id="token"
+              className="w-[400px]"
+              size={32}
+              value={token}
+              disabled
+            />
+            {errors?.name && (
+              <p className="px-1 text-xs text-red-600">{errors.name.message}</p>
+            )}
+          </div>
+        </CardContent>
       </Card>
     </form>
   )

@@ -10,8 +10,6 @@ export async function POST(request: Request,
   const threadId = params.thread_id;
   const assistantId = params.id;
 
-  
-  
   try {
     const session = await getServerSession(authOptions)
 
@@ -21,9 +19,9 @@ export async function POST(request: Request,
 
   const apiKey = await kv.get(`user:${session?.user.email}:api`) as string;
 
-  const zefiro = await fetch("http://localhost:8000/openapi/zefiro/v0.5/generate", {
+  //const zefiro = await fetch("http://localhost:8000/openapi/zefiro/v0.5/generate", {
   //  const zefiro = await fetch("https://52.5.233.79/openapi/zefiro/v0.5/generate", { 
-  //const zefiro = await fetch("https://qod.io/openapi/zefiro/v0.5/generate", { 
+  const zefiro = await fetch("https://qod.io/openapi/zefiro/v0.5/generate", { 
       method: "POST",
            headers: {
              "Content-Type": "application/json",

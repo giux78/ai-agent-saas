@@ -22,7 +22,7 @@ export default function GuidesPage() {
     <div className="py-6 lg:py-10">
       <DocsPageHeader
         heading="Guides"
-        text="This section includes all guides for using business operating system"
+        text="This section includes all guides for using Zefiro agents"
       />
       {guides?.length ? (
         <div className="grid gap-4 md:grid-cols-2 md:gap-6">

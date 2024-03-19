@@ -4,9 +4,9 @@ import { SiteConfig } from "types"
 const site_url = env.NEXT_PUBLIC_APP_URL;
 
 export const siteConfig: SiteConfig = {
-  name: "Business Operating System",
+  name: "Zefiro",
   description:
-    "Your Business operating system, record your task and we will automatize for you beeing your interface of your digital life",
+    "Zefiro, one of the best open source Italian LLM",
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {

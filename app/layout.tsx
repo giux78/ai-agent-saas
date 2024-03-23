@@ -20,11 +20,13 @@ export const metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
+    "LLM",
+    "Italian LLM",
+    "Opensource LLM",
+    "Best Italian LLM",
+    "Miglior LLM Italiano",
+    "LLM Italiano",
+    "GPT Italia"
   ],
   authors: [
     {

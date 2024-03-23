@@ -6,7 +6,7 @@ const site_url = env.NEXT_PUBLIC_APP_URL;
 export const siteConfig: SiteConfig = {
   name: "Zefiro",
   description:
-    "Zefiro, one of the best open source Italian LLM",
+    "Zefiro, one of the best 7-b open source Italian LLM",
   url: site_url,
   ogImage: `${site_url}/og.jpg`,
   links: {

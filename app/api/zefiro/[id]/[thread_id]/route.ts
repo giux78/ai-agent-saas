@@ -4,6 +4,9 @@ import { z } from "zod"
 import { authOptions } from "@/lib/auth"
 import { kv } from "@vercel/kv";
 
+export const maxDuration = 300; 
+
+
 export async function POST(request: Request,
    { params }: { params: { id: string, thread_id : string } }) {
   const messages  = await request.json();

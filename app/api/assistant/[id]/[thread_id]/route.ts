@@ -22,7 +22,8 @@ export const maxDuration = 300;
 
 interface ToTweetCampaign {
   tweet: string,
-  origin_url?: string
+  origin_url?: string,
+  apiKey?: string,
 }
 
 const tweet_campaigns = async ({tweet, origin_url=""} :ToTweetCampaign) => {
@@ -41,7 +42,8 @@ const tweet_campaigns = async ({tweet, origin_url=""} :ToTweetCampaign) => {
 }
 
 interface ToGenerateImage {
-  prompt: string
+  prompt: string,
+  apiKey?: string
 }
 
 const generate_image = async ({prompt}: ToGenerateImage) => {
@@ -72,7 +74,8 @@ const generate_image = async ({prompt}: ToGenerateImage) => {
 }
 
 interface ToGenerateVideo {
-  image_url: string
+  image_url: string,
+  apiKey?: string,
 }
 
 const generate_video_old = async ({image_url}: ToGenerateVideo) => {
@@ -132,7 +135,8 @@ const generate_video = async({image_url}: ToGenerateVideo) => {
 interface ToCreateProduct {prompt: string, 
   image_url: string,
   size: string,
-  color: string
+  color: string,
+  apiKey?: string
 }
 
 const create_product = async ({prompt, 

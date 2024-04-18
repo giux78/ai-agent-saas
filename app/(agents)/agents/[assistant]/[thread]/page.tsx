@@ -33,9 +33,6 @@ export default async function ReadOnlyPage({ params }: { params: { assistant: st
   const messages = await kv.get(`thread:${threadId}:messages`) as Message[]
   console.log("QUA PASSO")
   console.log(messages)
-
-
-
   
   if(!subscriptionPlan.isPaid){
     redirect(

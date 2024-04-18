@@ -23,12 +23,12 @@ export default async function DashboardPage() {
     redirect(authOptions?.pages?.signIn || "/login")
   }
 
-  const subscriptionPlan = await getUserSubscriptionPlan(user.id)
+  //const subscriptionPlan = await getUserSubscriptionPlan(user.id)
   
-  if(!subscriptionPlan.isPaid){
-    redirect(
-      "/agents/billing")
-  }
+  //if(!subscriptionPlan.isPaid){
+  //  redirect(
+  //    "/agents/billing")
+  //}
 
   const thread = await openaiClient.beta.threads.create(); 
   const id = thread.id

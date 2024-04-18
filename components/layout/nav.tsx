@@ -29,7 +29,6 @@ interface DashboardNavProps {
 export function DashboardNav({ items, user, threads }: DashboardNavProps) {
   const path = usePathname()
 
-  
   if (!items?.length) {
     return null
   }

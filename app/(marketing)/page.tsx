@@ -92,6 +92,7 @@ export default async function IndexPage() {
                 href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">It is one of the best Italian</Link> open source models and all anonymized conversations will be published as <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
                 href="https://huggingface.co/mii-llm" target="_blank">open source datasets</Link>.
               </p>
+              
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                   Chat with Maestrale

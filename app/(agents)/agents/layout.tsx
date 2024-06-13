@@ -17,17 +17,17 @@ export default async function DashboardLayout({
 }: DashboardLayoutProps) {
   const user = await getCurrentUser()
 
-  const threads =  (await kv.zrange(`user:thread:${user?.email}`, 0, -1)).reverse()
+  const threads =  (await kv.zrange(`user:thread:${user?.email}`, -100, -1)).reverse()
   let threadsInfo :any[] = []
   for (const idx in threads){
     const thread = threads[idx] as string;
-    /*if (await kv.exists(`${thread}:messages`)){
+    if (await kv.exists(`${thread}:messages`)){
        let threadInfo = await kv.hgetall(thread);
        const threadMessages = await kv.get(`${thread}:messages`);
        threadInfo!['messages'] = threadMessages
        //console.log(threadInfo)
        threadsInfo.push(threadInfo)
-    }*/
+    }
     //threads.push(a)
   }
   

@@ -54,7 +54,7 @@ export default async function DashboardPage() {
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Zefiro is an open source LLMs for Italian language</p>
         <div className="grid grid-cols-2 gap-1">
         <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-          Zefiro
+          Maestrale
         </Link>
         </div>
     </div>

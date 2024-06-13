@@ -88,9 +88,9 @@ export default async function IndexPage() {
               </h1>
               <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Is a 7 billion  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/mii-community/zefiro-7b-dpo-ITA" target="_blank">open source</Link> model fine tuned for dealing with Italian conversations. <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
+                href="https://huggingface.co/mii-llm/maestrale-chat-v0.4-beta" target="_blank">open source</Link> model fine tuned for producing good Italian both semantically and syntatically. Maestrale is able to integrate with tools via json and API calls and has reasoning capabilities. <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
                 href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">It is one of the best Italian</Link> open source models and all anonymized conversations will be published as <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/mii-community" target="_blank">open source datasets</Link>.
+                href="https://huggingface.co/mii-llm" target="_blank">open source datasets</Link>.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link href="/agents/zefiro" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>

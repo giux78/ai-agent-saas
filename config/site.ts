@@ -60,6 +60,13 @@ export const features = [
     icon: "hf",
   },
   {
+    title: "mmlu-pro",
+    description:
+      "We tranlated the mmlu-pro dataset to Italian and contributed to integrate into the lm-eval command for evaluating Italian LLM on difficult tasks",
+    link: "https://github.com/EleutherAI/lm-evaluation-harness/pull/1860",
+    icon: "github"
+  },
+  {
     title: "Maestrale series",
     description:
       "A series of open source LLMs a fine tuned versions of mistral 7 Billion for producing Italian ",

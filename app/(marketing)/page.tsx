@@ -40,7 +40,7 @@ export default async function IndexPage() {
             </Balancer>
           </h1>
           <p
-          className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+          className="text-balance max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
            We are specializing ourselves in training, evaluating, developing and deploying AI systems. 

@@ -76,7 +76,7 @@ export const features = [
 
 ];
 
-export const footerLinks: SidebarNavItem[] = [
+export const footerLinks = [
   {
     title: "Company",
     items: [

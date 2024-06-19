@@ -63,7 +63,7 @@ export function PromptFormAssistant({
     let response;
     if(assistantId === 'zefiro_v0.5'){
       response = await fetch(
-        `/api/zefiro/${assistantId}/${threadId}`, {
+        `/api/maestrale/${assistantId}/${threadId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

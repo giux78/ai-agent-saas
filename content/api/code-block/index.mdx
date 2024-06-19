@@ -1,12 +1,20 @@
 ---
-title: Zefiro API
-description: Description for calling Zefiro APIs  and some suggestions
+title: MII-LLM API
+description: Description for calling MII-LLM APIs and some suggestions
 ---
 
 
 <Callout>
 
-You need to be subscribed for using the APIs
+cazzo You need to be logged in for using the APIs with the APIKEY
+
+</Callout>
+
+<Callout>
+
+### API KEY
+
+You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 
 
 </Callout>
 
@@ -14,7 +22,7 @@ You need to be subscribed for using the APIs
 
 ```bash
 curl -X 'POST' \
-  'https://qod.io/openapi/zefiro/v0.5/generate' \
+  'https://qod.io/openapi/maestrale/v0.4/generate' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -29,7 +37,3 @@ curl -X 'POST' \
   },
 ]'
 ```
-
-### API KEY
-
-You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 

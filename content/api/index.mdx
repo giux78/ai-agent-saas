@@ -1,25 +1,29 @@
 ---
-title: Zefiro API
-description: Description for calling Zefiro APIs  and some suggestions
+title: MII-LLM API
+description: Description for calling MII-LLM APIs and using our services
 ---
 
 <Callout>
 
-The project is just started you can follow updates on Twitter [@giux78](https://twitter.com/giux78).
+You need to be [registered](/login) for using the APIs at the moment the service is free but 
+you can call the API one per minute
 
 </Callout>
 
 <Callout>
+### API KEY
 
-You need to be [subscribed](/agents/billing)  to a pay plan for using the APIs
+You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 
 
 </Callout>
 
-## Example
+## Conversation example
+
+Remember to substitute the APIKEY with your key that is in your setting page after Login
 
 ```bash
 curl -X 'POST' \
-  'https://qod.io/openapi/zefiro/v0.5/generate' \
+  'https://qod.io/openapi/maestrale/v0.4/generate' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -37,46 +41,149 @@ curl -X 'POST' \
 ]'
 ```
 
-### API KEY
+## Function calling
 
-You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 
+Is possibile to use the API for preparing to call external tool as in a function call situation here 
+the api all to prepare the data for function call
 
-## Features
+```bash
+curl -X 'POST' \
+  'https://qod.io/openapi/maestrale/v0.4/generate' \
+  -H 'accept: application/json' \
+  -H 'X-Auth: YOURAPIKEY' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "content": "Sei un assistente utile che ha accesso alle seguenti funzioni. Usa le funzioni solo se necessari o chiedi chiarimenti in caso di ambiguità \n { \"name\": \"order_dinner\", \"description\": \"Ordina una cena al ristorante tra quelli disponibili\", \"parameters\": {\"type\": \"object\", \"properties\": {\"restaurant_name\": {\"type\": \"string\", \"description\": \"il nome del ristorante\", \"enum\": [\"Bufalo Bill\", \"Pazzas\"]}}, \"required\": [\"restaurant_name\"]}} \n",
+    "role": "assistant",
+    "id" : "sys"
 
-Select one agents
+  },
+  {
+    "content": "Ho fame vorrei ordinare la cena",
+    "role": "user"
+  }
+]'
+```
+
+## Function calling complete example
+
+```python
+    
+import json
+import requests
+
+# Create an array of json representing a function using Italian for all the description
+json_arr = [#{"name": "order_dinner", "description": "Ordina una cena al ristorante tra quelli disponibili", "parameters": {"type": "object", "properties": {"restaurant_name": {"type": "string", "description": "il nome del ristorante", "enum" : ['Bufalo Bill','Pazzas']}}, "required": ["restaurant_name"]}},
+            {"name": "get_weather_from_city", "description": "Ritorna le previsioni del tempo o metereologiche in una determinata citta", "parameters": {"type": "object", "properties": {"city": {"type": "string", "description": "Il nome della citta per le previsioni"}}, "required": ["location"]}},
+          #  {"name": "create_product", "description": "Crea un prodotto da vendere", "parameters": {"type": "object", "properties": {"product_name": {"type": "string", "description": "Il nome del prodotto "}, "size": {"type": "string", "description": "la taglia del prodotto"}, "price": {"type": "integer", "description": "Il prezzo del prodotto "}}, "required": ["product_name", "size", "price"]}},
+          #  {"name": "is_open", "description": "Questa funzione ritorna se una attività negozio o servizio è aperto in questo momento", "parameters": {"type": "object", "properties": {"name_of_service": {"type": "string", "description": "Il nome del servizio o negozio"}}, "required": ["name_of_service"]}},
+          #  {"name": "get_news_from_argument", "description": "Chiedi informazioni sulle ultime notizie su un argomento a scelta", "parameters": {"type": "object", "properties": {"argument": {"type": "string", "description": "L'argomento su cui fare la ricerca"}}, "required": ["argument"]}},
+            ]
+
+# create a json string of the obj to pass to the LLM 
+json_string = '\n'.join([json.dumps(json_obj) for json_obj in json_arr])
+
+# Append system prompt to json string
+system_prompt = 'Tu sei un assistenze utile che ha accesso alle seguenti funzioni. Usa le funzioni solo se necessario o chiedi chiarimenti in caso di ambigiutà - \n ' + json_string + ' \n '
+system_prompt
+
+# A set of working example depending on the json_string create above
+messages = [{'role' : 'system' , 'content' : system_prompt, 'id' : 'sys'},
+            #{'role' : 'user' , 'content' : "E' aperto il ristorante le Case?"},
+            #{'role' : 'user' , 'content' : 'Vorrei sapere le ultime news'},
+            #{'role' : 'assistant', 'content' : '''Mi dispiace, ma non ho abbastanza informazioni per fornirti le ultime news specifiche. Posso darti notizie generali se vuoi, oppure puoi essere più preciso nell'indicare l'argomento delle notizie che ti interessano?'''},
+            #{'role' : 'user' , 'content' : 'europei di calcio'},
+            #{'role' : 'assistant', 'content' : 'Eccomi! Per favore indica quale aspetto dei Campionati Europei di Calcio vorresti approfondire: notizie recenti sulla competizione stessa e i suoi sviluppi, dettagli tecnici sugli allenatori o giocatori coinvolti, curiosità o altro ancora? Sentiti libero di specificare il tuo interesse!'}
+
+            #{'role' : 'user' , 'content' : 'vorrei sapere le ultime notizie sul argomento del calcio mercato'},
+
+                #{'role' : 'user' ,'content' : 'Ho fame puoi ordinarmi una cena al ristorante?'},
+                #{'role' : 'assistant', 'content' : 'Certo, posso aiutarti. Potresti dirmi il nome del ristorante?'},
+                #{'role': 'user', 'content' : 'ristorante Pazzas'},
+
+                # PRODUCT {'role' : 'user' ,'content' : 'Puoi creare un prodotto, please'},
+                # PRODUCT {'role' : 'assistant' ,'content' : 'Certo! Posso aiutarti. Potrebbe fornirmi il nome del prodotto, la taglia e il prezzo?'},
+                # PRODUCT {'role' : 'user' , 'content': 'nome Ale, prezzo 120 taglia xl'},
+
+                # NO see result {'role' : 'user' ,'content' : 'vorrei saper le ultime notizie sul calcio'},
+                {'role' : 'user' , 'content' : 'sai aiutarmi con le previsioni del tempo a Trento?'},
+                # Wether  {'role' : 'assistant' , 'content' : 'Certo, posso aiutarti. Potrebbe fornirmi il nome della città per le previsioni del tempo?'},
+                # Wether  {'role' : 'user' , 'content' : 'Trento'}
+
+             ]
+# 
+headers = {
+    'accept': 'application/json',
+    'X-Auth': 'YOUR_APIKEY',
+    'Content-Type': 'application/json',
+}
+
+response = requests.post('https://qod.io/openapi/maestrale/v0.4/generate', headers=headers, json=messages)
+print(response)
+conversations  = response.json()
+
+print(conversations)
+
+function_string = conversations[-1]['content']
+
+def is_json(myjson):
+  try:
+    json.loads(myjson)
+  except ValueError as e:
+    return False
+  return True
+
+if is_json(function_string):
+    obj_to_call = json.loads(function_string)
+else:
+    obj_to_call = None
+
+print(obj_to_call)
+
+def obj_to_func(obj):
+    arguments_keys = obj['arguments'].keys()
+    params = []
+    for key in arguments_keys:
+        param = f'{key}=\"{obj["arguments"][key]}\"'
+        params.append(param)
+    func_params = ','.join(params)
+    print(f'{obj["name"]}({func_params})')
+    return f'{obj["name"]}({func_params})'
+
+func_str = obj_to_func(obj_to_call)
+
+openai_response = {
+  "index": 0,
+  "message": {
+    "role": "assistant",
+    "content": func_str,
+    "function_call": [
+      obj_to_call
+    ]
+  },
+  "finish_reason": "stop"
+}
+
+print(openai_response)
+
+```
 
 <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
 
-<Card href="/
-api/documentation">
+<Card href="https://colab.research.google.com/drive/1rVGo77e59JK3dmushjhALCxet4BQ8oKI">
 
-### Documentation
+### Colab Api function calling
 
-Hoodie Creator Agent
-
-</Card>
-
-<Card href="/docs/marketing" disabled>
-
-### Marketing 
-
-The Marketing Agent
+Complete function calling usage
 
 </Card>
 
-<Card href="/docs/app" disabled>
+<Card href="https://colab.research.google.com/drive/1uVQVgHZz51IuO-aN3Djsj8E8H3w_BXg-?usp=sharing" >
 
-### Finance
+### Colab local model 
 
-The financing agent
-
-</Card>
-
-<Card href="/docs/blog" disabled>
-
-###  Memory
-
-Cross memory between agents
+Conversational example
 
 </Card>
 

@@ -92,7 +92,7 @@ export const mapping = { "asst_cNad0b2mQe1bvj3HAMPgrld3" : {
   "name" : "Video Creator"},
 "asst_zefiro" : { 'logo' : "/images/zefiro_small.png", 
                   'description' : "I m an open source model that speack Italian", 
-                  "name" : "Zefiro"},
+                  "name" : "Maestrale"},
 "asst_p7n265weAL7Wv0aKNscuP25q" : { 
   'logo' : "/images/chart-creator-logo.png",
   'description' : 'I can read data and provide insides and charts', 

@@ -14,6 +14,11 @@ export const dashboardConfig: DashboardConfig = {
   ],
   sidebarNav: [
     {
+      title: "Chat",
+      href: "/agents/maestrale",
+      icon: "post",
+    },
+    {
       title: "Agents",
       href: "/agents",
       icon: "post",

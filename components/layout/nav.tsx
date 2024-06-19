@@ -57,13 +57,13 @@ export function DashboardNav({ items, user, threads }: DashboardNavProps) {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="/agents/zefiro"
+                  href="/agents/maestrale"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Zefiro Chat
+                  Maestrale Chat
                 </a>
               )}
             </Menu.Item>

@@ -7,6 +7,10 @@ export const marketingConfig: MarketingConfig = {
       href: "/api",
     },
     {
+      title: "Agent",
+      href: "/agent",
+    },
+    {
       title: "Blog",
       href: "/blog",
     },

@@ -9,9 +9,10 @@ import { Icons } from "@/components/shared/icons"
 import { kv } from "@vercel/kv"
 import { User } from "next-auth"
 
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, PlusIcon } from '@heroicons/react/20/solid'
+import React from "react"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -27,6 +28,20 @@ interface DashboardNavProps {
 }
 
 export function DashboardNav({ items, user, threads }: DashboardNavProps) {
+  
+  const [threadsTest, setThreadsTest] = React.useState<any[]>([]);
+  const [isLoading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    fetch('/api/threads')
+      .then((res) => res.json())
+      .then((data) => {
+        setThreadsTest(data)
+        console.log("test")
+        setLoading(false)
+      })
+  }, [])
+  
   const path = usePathname()
 
   if (!items?.length) {
@@ -113,7 +128,7 @@ export function DashboardNav({ items, user, threads }: DashboardNavProps) {
     <hr className="my-12 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
     <h3>Chats:</h3>
     <ul role="list" className="h-screen divide-y divide-gray-100 overflow-y-scroll">
-      {threads.map((thread) => (
+      {threadsTest.map((thread) => (
         <Link key={thread.id} href={`/agents/${thread.assistantId.assistant_id}/${thread.id}`}>
           <li key={thread.id}  className="flex w-[200px] items-center py-2">
           <img key={thread.id} src={mapping[thread.assistantId.assistant_id].logo}  className="mr-4 h-12 w-12 rounded-full" />

@@ -17,7 +17,8 @@ export default async function DashboardLayout({
 }: DashboardLayoutProps) {
   const user = await getCurrentUser()
 
-  const threads =  (await kv.zrange(`user:thread:${user?.email}`, -100, -1)).reverse()
+/*
+  const threads =  ( await kv.zrange(`user:thread:${user?.email}`, -100, -1)).reverse()
   let threadsInfo :any[] = []
   for (const idx in threads){
     const thread = threads[idx] as string;
@@ -30,6 +31,9 @@ export default async function DashboardLayout({
     }
     //threads.push(a)
   }
+  */ 
+
+  let threadsInfo :any[] = []
   
   if (!user) {
     return notFound()

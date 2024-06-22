@@ -23,7 +23,7 @@ Remember to substitute the APIKEY with your key that is in your setting page aft
 
 ```bash
 curl -X 'POST' \
-  'https://qod.io/openapi/maestrale/v0.4/generate' \
+  'https://api.mii-llm.ai/openapi/maestrale/v0.4/generate' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -48,7 +48,7 @@ the api all to prepare the data for function call
 
 ```bash
 curl -X 'POST' \
-  'https://qod.io/openapi/maestrale/v0.4/generate' \
+  'https://api.mii-llm.ai/openapi/maestrale/v0.4/generate' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -119,7 +119,7 @@ headers = {
     'Content-Type': 'application/json',
 }
 
-response = requests.post('https://qod.io/openapi/maestrale/v0.4/generate', headers=headers, json=messages)
+response = requests.post('https://api.mii-llm.ai/openapi/maestrale/v0.4/generate', headers=headers, json=messages)
 print(response)
 conversations  = response.json()
 

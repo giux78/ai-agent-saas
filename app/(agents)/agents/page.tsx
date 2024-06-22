@@ -85,6 +85,7 @@ export default async function DashboardPage() {
         </div>
     </div>
 </div>
+{ /*
 <div className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="#">
@@ -108,6 +109,7 @@ export default async function DashboardPage() {
         </div>
     </div>
 </div>
+    */}
 <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
     <a href="/agents/analyst">

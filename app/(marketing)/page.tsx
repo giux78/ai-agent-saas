@@ -14,6 +14,10 @@ export default async function IndexPage() {
     <>
           <section className="space-y-6 pb-12 pt-16 lg:py-12">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
+          <div
+          className="flex justify-center space-x-2 md:space-x-4"
+          style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
+        > 
           <Link
             href="https://huggingface.co/mii-llm"
             style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
@@ -27,6 +31,20 @@ export default async function IndexPage() {
               width="60"
             />
           </Link>
+                    <Link
+            href="https://discord.gg/dTUYfgmsAh"
+            style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+            target="_blank"
+          >
+            <img
+              alt="mii-llm discord"
+              className="object-cover object-center"
+              height="60"
+              src="/images/discord-mark-blue.png"
+              width="60"
+            />
+          </Link>
+  </div>
 
           <h1
             className="animate-fade-up font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
@@ -36,7 +54,7 @@ export default async function IndexPage() {
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
                 MII-LLM
               </span>
-              {" "} an indipendent AI research lab 
+              {" "} an indipendent AI research community 
             </Balancer>
           </h1>
           <p
@@ -68,14 +86,14 @@ export default async function IndexPage() {
             href="/agents/maestrale"
             className={cn(
               buttonVariants({
-                variant: "outline",
+               // variant: "outline",
                 size: "lg",
               }),
               "px-5",
             )}
           >
             <p>
-              <span className="hidden sm:inline-block">Chat</span>
+              <span className="">Chat</span>
             </p>
           </Link>
         </div>

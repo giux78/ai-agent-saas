@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   description:
     "MII-LLM, the community of open source Italian LLM",
   url: site_url,
-  ogImage: `${site_url}/og.jpg`,
+  ogImage: `${site_url}/og.png`,
   links: {
     twitter: "https://twitter.com/businessos_",
     github: "https://github.com/giux78",

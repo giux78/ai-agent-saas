@@ -73,6 +73,13 @@ export const features = [
     link: "https://huggingface.co/datasets/mii-llm",
     icon: "hf",
   },
+  {
+    title: "Pinocchio Eval dataset",
+    description:
+      "A multimodal and text dataset for evaluating LLMs on Italian tasks",
+    link: "https://huggingface.co/datasets/mii-llm/pinocchio",
+    icon: "hf",
+  },
 
 ];
 

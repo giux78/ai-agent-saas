@@ -80,6 +80,13 @@ export const features = [
     link: "https://huggingface.co/datasets/mii-llm/pinocchio",
     icon: "hf",
   },
+  {
+    title: "lm-evaluation-harness fork",
+    description:
+      "A fork of lm-evaluation-harness with Italian specific tasks: mmlu arc-c hellaswag pinocchio-law, pinocchio-logic, pinocchio-math and reasoning like mmlu-pro-ita",
+    link: "https://github.com/mii-llm/lm-evaluation-harness",
+    icon: "github",
+  },
 
 ];
 

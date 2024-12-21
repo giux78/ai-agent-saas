@@ -2,7 +2,8 @@ import { getServerSession } from "next-auth/next"
 import { z } from "zod"
 
 import { authOptions } from "@/lib/auth"
-import { MessageContentText } from "openai/resources/beta/threads/messages/messages"
+//import { MessageContentText } from "openai/resources/beta/threads/messages/messages"
+
 import { openaiClient } from "@/lib/openaiClient"
 import { kv } from "@vercel/kv"
 import * as fs from 'fs';
@@ -213,7 +214,13 @@ export async function POST(
         {
           role: "user",
           content: prompt,
-          file_ids : [fileId]
+          attachments: [
+            {
+              file_id: fileId,
+              tools: [
+              ]
+            }
+          ]
         }
       );
     } else {
@@ -306,7 +313,7 @@ export async function POST(
       "------------------------------------------------------------ \n"
     );
 
-    console.log("User: ", (message.content[0] as MessageContentText).text.value);
+    //console.log("User: ", (message.content[0] as MessageContentText).text.value);
     //console.log("Assistant: ", ( allMessages.data[0].content[0] as MessageContentText).text.value);
     console.log("Assistant: ", allMessages.data[0].content[0]) //.text.value);
     

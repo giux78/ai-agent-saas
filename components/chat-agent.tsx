@@ -61,7 +61,7 @@ export function ChatAgent({ id, initialMessages, name, className, threadId, logo
   return (
     <>
     <div className="flex items-center p-4">
-      <img src={`/images/${logo}`} alt="Descriptive Alt Text" className="mr-4 h-20 w-20 rounded-full object-cover"/>
+      <img src={`/images/${logo}`} alt="Descriptive Alt Text" className="mr-4 size-20 rounded-full object-cover"/>
       <div>
         <h2 className="text-lg font-bold">{name}</h2>
         <h6>{description}</h6>

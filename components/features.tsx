@@ -56,7 +56,7 @@ export default function Features() {
                      (feature.icon == 'github') && (
                       <Link href={feature.link} className="flex items-center gap-2">
                         <span> </span>
-                        <Icons.gitHub className="h-7 w-7" />
+                        <Icons.gitHub className="size-7" />
                       </Link>
                       )
                      }

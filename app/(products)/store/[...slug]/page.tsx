@@ -57,7 +57,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
           "absolute left-[-200px] top-14 hidden xl:inline-flex"
         )}
       >
-        <Icons.chevronLeft className="mr-2 h-4 w-4" />
+        <Icons.chevronLeft className="mr-2 size-4" />
         See all product
       </Link>
       <div>
@@ -79,7 +79,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
             <img
               src={product.images[0]}
               alt={product.description!}
-              className="h-full w-full object-cover object-center"
+              className="size-full object-cover object-center"
             />
           </div>
 
@@ -87,7 +87,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
             <img
               src={product.images[1]}
               alt={product.description!}
-              className="h-full w-full object-cover object-center"
+              className="size-full object-cover object-center"
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
       <div className="flex justify-center py-6 lg:py-10">
         <Link href="/store" className={cn(buttonVariants({ variant: "ghost" }))}>
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+          <Icons.chevronLeft className="mr-2 size-4" />
           See all products
         </Link>
       </div>

@@ -54,7 +54,7 @@ export function BillingFormButton({ year, offer, subscriptionPlan }: BillingForm
         disabled={isLoading}
       >
         {isLoading && (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          <Icons.spinner className="mr-2 size-4 animate-spin" />
         )}
         {subscriptionPlan.stripePriceId === offer.stripeIds[year ? "yearly" : "monthly"]
           ? "Manage Subscription"

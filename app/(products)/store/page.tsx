@@ -85,7 +85,7 @@ export default async function PricingPage() {
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "xl" }), "px-8")}
             >
-              <Icons.openai className="mr-2 h-4 w-4" />
+              <Icons.openai className="mr-2 size-4" />
               <p className='text-bold text-lg'>
                 <span className="hidden xl:inline-block">GPTs Create with </span>{" "} Hoodie Creator{" "}
               </p>
@@ -103,7 +103,7 @@ export default async function PricingPage() {
                 <img
                   src={product.images[0]}
                   alt={product.description!}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
+                  className="size-full object-cover object-center group-hover:opacity-75"
                 />
               </div>
               <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>

@@ -16,7 +16,7 @@ interface HeaderSectionProps {
           {title}
         </h2>
         {subtitle ? (
-          <p className="text-balance mt-6 text-lg text-muted-foreground">
+          <p className="mt-6 text-balance text-lg text-muted-foreground">
             {subtitle}
           </p>
         ) : null}

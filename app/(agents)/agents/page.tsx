@@ -79,7 +79,7 @@ export default async function DashboardPage() {
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
             >
-              <Icons.openai className="mr-2 h-4 w-4" />
+              <Icons.openai className="mr-2 size-4" />
                 <span className="hidden sm:inline-block">GPTs </span>
             </Link>
         </div>
@@ -130,7 +130,7 @@ export default async function DashboardPage() {
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "sm" }), "px-4")}
             >
-              <Icons.openai className="mr-2 h-4 w-4" />
+              <Icons.openai className="mr-2 size-4" />
                 <span className="hidden sm:inline-block">GPTs </span>
             </Link>
         </div>

@@ -41,7 +41,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
         </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/agents/maestrale" className="flex items-center space-x-2.5">
+          <Link href="https://chat.mii-llm.ai" className="flex items-center space-x-2.5" target="_blank">
             <MessageSquare className="size-4" />
             <p className="text-sm">Chat</p>
           </Link>

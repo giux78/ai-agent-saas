@@ -60,7 +60,7 @@ export default async function DashboardPage() {
       </div>
       */}
       <ChatAgent 
-        id="zefiro_v0.5" 
+        id="Aurora_v0.5" 
         name="Maestrale" 
         logo="zefiro_small.png" 
         threadId={id}

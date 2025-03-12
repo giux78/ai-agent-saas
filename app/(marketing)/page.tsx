@@ -83,7 +83,8 @@ export default async function IndexPage() {
             <Icons.arrowRight className="size-4" />
           </Link>
           <Link
-            href="/agents/maestrale"
+            href="https://chat.mii-llm.ai"
+            target="_blank"
             className={cn(
               buttonVariants({
                // variant: "outline",
@@ -112,8 +113,8 @@ export default async function IndexPage() {
               </p>
               
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/agents/maestrale" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                  Chat with Maestrale
+              <Link href="https://chat.mii-llm.ai" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  Chat with MII-LLM
               </Link>
               <Link href="/api" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
                   Maestrale API

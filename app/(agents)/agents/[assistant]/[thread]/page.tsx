@@ -46,7 +46,7 @@ export default async function ReadOnlyPage({ params }: { params: { assistant: st
     <DashboardShell>
 
       <ChatAgentReadOnly 
-        id="zefiro_v0.5" 
+        id="Aurora_v0.1" 
         name={mapping[assistantId].name} 
         logo={logo} 
         threadId={threadId}

@@ -72,13 +72,14 @@ export function DashboardNav({ items, user, threads }: DashboardNavProps) {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="/agents/maestrale"
+                  href="https://chat.mii-llm.ai"
+                  target="_blank"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Maestrale Chat
+                  MII-LLM Chat
                 </a>
               )}
             </Menu.Item>

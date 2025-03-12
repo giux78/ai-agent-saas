@@ -15,7 +15,7 @@ export const dashboardConfig: DashboardConfig = {
   sidebarNav: [
     {
       title: "Chat",
-      href: "/agents/maestrale",
+      href: "https://chat.mii-llm.ai",
       icon: "post",
     },
     {

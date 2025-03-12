@@ -44,17 +44,17 @@ export default async function DashboardPage() {
   <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
   <div  className="h-550 max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
-    <a href="/agents/maestrale">
+    <a href="https://chat.mii-llm.ai" target="_blank">
         <img className="rounded-t-lg" src="/images/zefiro_small.png" alt="" />
     </a>
     <div className="p-5">
-        <a href="/agents/maestrale">
+        <a href="https://chat.mii-llm.ai" target="_blank">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Maestrale</h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Maestrale is an open source LLMs for Italian language</p>
         <div className="grid grid-cols-2 gap-1">
-        <Link href="/agents/maestrale" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-          Maestrale
+        <Link href="https://chat.mii-llm.ai" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+          MII-LLM Chat
         </Link>
         </div>
     </div>

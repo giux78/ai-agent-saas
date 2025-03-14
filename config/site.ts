@@ -18,6 +18,13 @@ export const siteConfig: SiteConfig = {
 
 export const features = [
   {
+    title: "Propaganda",
+    description:
+      "Propaganda is an open-source initiative dedicated to assessing and generating political bias in Large Language Models (LLMs).",
+    link: "https://github.com/mii-llm/propaganda",
+    icon: "github"
+  },
+  {
     title: "lm-evaluation-harness",
     description:
       "We contribute to add mmlu and arc_c evaluation benchmark for Italian based tasks. Our bechmarks are now used by many LLMs groups for evaluating Italian based LLMs",

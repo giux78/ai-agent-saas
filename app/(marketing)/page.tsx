@@ -99,6 +99,65 @@ export default async function IndexPage() {
           </Link>
         </div>
           </section>
+          <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+            <Link 
+                href="https://github.com/mii-llm/propaganda" target="_blank">
+              <img
+                alt="Image"
+                className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                height="310"
+                src="/images/propaganda.png"
+                width="500"
+              />
+              </Link>
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Propaganda
+                  </h2>
+                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Propaganda is an open-source initiative dedicated to assessing and generating political bias in Large Language Models (LLMs). It offers comprehensive suites designed for evaluating political bias, developing datasets to introduce political bias into LLMs, and has also released two specific LLMs: Propaganda-dx, tailored for conservative bias, and Propaganda-sx, aimed at liberal bias.                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Link href="https://huggingface.co/mii-llm/propaganda-dpo-dx-v0.1" className="flex items-center gap-2">
+                        <img
+                            alt="hugging face"
+                            className="object-cover object-center"
+                            height="40"
+                            src="/images/hf-logo.png"
+                            width="40"
+                            />
+                              Propaganda-dx
+                      </Link>
+                      <Link href="https://huggingface.co/mii-llm/propaganda-dpo-sx-v0.1" className="flex items-center gap-2">
+                        <img
+                            alt="hugging face"
+                            className="object-cover object-center"
+                            height="40"
+                            src="/images/hf-logo.png"
+                            width="40"
+                            />
+                              Propaganda-sx
+                      </Link>
+
+
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Link href="https://github.com/mii-llm/propaganda" className="flex items-center gap-2">
+                        <Icons.gitHub className="size-7" />
+                        <span>Code </span>
+                      </Link>
+                      <Link href="https://github.com/mii-llm/propaganda/blob/main/eval/propaganda_evals/charts/Propaganda.pdf" className="flex items-center gap-2">
+                        <Icons.gitHub className="size-7" />
+                        <span>Technical report </span>
+                      </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
           <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
           <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
             <div className="space-y-3">

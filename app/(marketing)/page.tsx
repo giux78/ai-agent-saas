@@ -12,7 +12,7 @@ import { HeaderSection } from "@/components/shared/header-section"
 export default async function IndexPage() {
   return (
     <>
-          <section className="space-y-6 pb-12 pt-16 lg:py-12">
+      <section className="space-y-6 pb-12 pt-16 lg:py-12">
         <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
           <div
           className="flex justify-center space-x-2 md:space-x-4"
@@ -44,7 +44,7 @@ export default async function IndexPage() {
               width="60"
             />
           </Link>
-  </div>
+        </div>
 
           <h1
             className="animate-fade-up font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
@@ -98,8 +98,39 @@ export default async function IndexPage() {
             </p>
           </Link>
         </div>
-          </section>
-          <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
+        <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
+          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
+                Maestrale
+              </h1>
+              <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Is a 7 billion  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
+                href="https://huggingface.co/mii-llm/maestrale-chat-v0.4-beta" target="_blank">open source</Link> model fine tuned for producing good Italian both semantically and syntatically. Maestrale is able to integrate with tools via json and API calls and has reasoning capabilities. <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
+                href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">It is one of the best Italian</Link> open source models and all anonymized conversations will be published as <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
+                href="https://huggingface.co/mii-llm" target="_blank">open source datasets</Link>.
+              </p>
+              
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link href="https://chat.mii-llm.ai" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  Chat with MII-LLM
+              </Link>
+              <Link href="/api" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                  Maestrale API
+              </Link>
+              </div>
+            </div>
+            <img
+              alt="Hero image"
+              className="overflow-hidden rounded-xl object-cover object-center"
+              height="310"
+              src="/images/zefiro_small.png"
+              width="500"
+            />
+          </div>
+        </section>
+        </section>
+         <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
           <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
             <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
             <Link 
@@ -158,39 +189,8 @@ export default async function IndexPage() {
             </div>
           </div>
         </section>
-          <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
-                Maestrale
-              </h1>
-              <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Is a 7 billion  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/mii-llm/maestrale-chat-v0.4-beta" target="_blank">open source</Link> model fine tuned for producing good Italian both semantically and syntatically. Maestrale is able to integrate with tools via json and API calls and has reasoning capabilities. <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">It is one of the best Italian</Link> open source models and all anonymized conversations will be published as <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/mii-llm" target="_blank">open source datasets</Link>.
-              </p>
-              
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="https://chat.mii-llm.ai" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                  Chat with MII-LLM
-              </Link>
-              <Link href="/api" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                  Maestrale API
-              </Link>
-              </div>
-            </div>
-            <img
-              alt="Hero image"
-              className="overflow-hidden rounded-xl object-cover object-center"
-              height="310"
-              src="/images/zefiro_small.png"
-              width="500"
-            />
-          </div>
-        </section>
-        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
+        <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
+        <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
             <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
             <Link 
                 href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">

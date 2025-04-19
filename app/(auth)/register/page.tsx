@@ -47,7 +47,7 @@ export default function RegisterPage() {
             >
               Privacy Policy
             </Link>
-            .
+            
           </p>
         </div>
       </div>

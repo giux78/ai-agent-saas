@@ -36,6 +36,14 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
           <div className="flex items-center space-x-3">
             {rightElements}
 
+            <Link
+                href="https://chat.mii-llm.ai"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" })
+                )}
+              >MII-LLM CHAT</Link>
+
+            {/*
             {!user ? (
               <Link
                 href="/login"
@@ -52,6 +60,7 @@ export function NavBar({ user, items, children, rightElements, scroll = false }:
             ) : (
               <Button className="px-3" variant="default" size="sm" onClick={signInModal.onOpen}>Sign In</Button>
             )}
+            */}
           </div>
         </div>
       </header>

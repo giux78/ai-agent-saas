@@ -6,17 +6,17 @@ export const marketingConfig: MarketingConfig = {
       title: "Api",
       href: "/api",
     },
-    {
+   /* {
       title: "Agent",
       href: "/agent",
-    },
+    }, */
     {
       title: "Blog",
-      href: "/blog",
-    },
+      href: "https://medium.com/@giuxale",
+    },/*
     {
       title: "Store",
       href: "/store",
-    },
+    },*/
   ],
 }

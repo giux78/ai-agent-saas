@@ -5,16 +5,7 @@ description: Description for calling MII-LLM APIs and using our services
 
 <Callout>
 
-You need to be [registered](/login) for using the APIs at the moment the service is free but 
-you can call the API one per minute
-
-</Callout>
-
-<Callout>
-### API KEY
-
-You can find you apikey and the numer of token still avalaible in the [setting](/agents/settings) 
-
+You need to be registered to [https://regolo.ai](https://regolo.ai) with a valid APIKEY for using the Maestrale at the moment.
 </Callout>
 
 ## Conversation example
@@ -23,7 +14,7 @@ Remember to substitute the APIKEY with your key that is in your setting page aft
 
 ```bash
 curl -X 'POST' \
-  'https://api.mii-llm.ai/openapi/maestrale/v0.4/generate' \
+  'https://api.regolo.ai/v1/chat/completions' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -48,7 +39,7 @@ the api all to prepare the data for function call
 
 ```bash
 curl -X 'POST' \
-  'https://api.mii-llm.ai/openapi/maestrale/v0.4/generate' \
+  'https://api.regolo.ai/v1/chat/completions' \
   -H 'accept: application/json' \
   -H 'X-Auth: YOURAPIKEY' \
   -H 'Content-Type: application/json' \
@@ -119,7 +110,7 @@ headers = {
     'Content-Type': 'application/json',
 }
 
-response = requests.post('https://api.mii-llm.ai/openapi/maestrale/v0.4/generate', headers=headers, json=messages)
+response = requests.post('https://api.regolo.ai/v1/chat/completions', headers=headers, json=messages)
 print(response)
 conversations  = response.json()
 
@@ -168,41 +159,7 @@ openai_response = {
 print(openai_response)
 
 ```
-
-## Entity extraction
-
-Is possibile to use the API for extracting entities dynamically by passing a chunk of text 
-of max 200 words and an array of entities to be extracted
-
-```bash
-curl -X 'POST' \
-  'https://api.mii-llm.ai/openapi/gliner-ita/v0.1/entity_extraction' \
-  -H 'accept: application/json' \
-  -H 'X-Auth: YOUR_APIKEY' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "text": "Cristiano Ronaldo ha vinto gli europei di calcio",
-  "labels": [
-    "persona", "torneo"
-  ]
-}'
-```
  
-## PII Anonymization
-
-Use the API for anonymize PII data as example Account Number, Building Number, City, Credit Card Number, Date of Birth, Driver's License, Email, First Name, Last Name, ID Card, Password, Social Security Number, Street Address, Tax Number, Phone Number, Username, Zipcode  Pass a chunk of text max 200 words and it return the text anonymized. 
-
-```bash
-curl -X 'POST' \
-  'https://api.mii-llm.ai/openapi/pii-anonymize/v0.1/anonymize' \
-  -H 'accept: application/json' \
-  -H 'X-Auth: YOUR_APIKEY' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "text": "Ciao io sottoscritto Alessandro Ercolani abito in via Apuleio 18"
-}'
-```
-
 <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
 
 <Card href="https://colab.research.google.com/drive/1rVGo77e59JK3dmushjhALCxet4BQ8oKI">

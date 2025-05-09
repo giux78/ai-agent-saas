@@ -66,7 +66,7 @@ export default async function IndexPage() {
                 href="https://seeweb.it" target="_blank">Seeweb</Link> cloud provider.
            We &hearts; Italy and open source.
           </p>
-          </div>
+         </div>
           <div
           className="flex justify-center space-x-2 md:space-x-4"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
@@ -109,7 +109,7 @@ export default async function IndexPage() {
               <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Is a 7 billion  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
                 href="https://huggingface.co/mii-llm/maestrale-chat-v0.4-beta" target="_blank">open source</Link> model fine tuned for producing good Italian both semantically and syntatically.  It is one of the best model for Italian language as is shown in the <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://indigo.ai/it/chatbot-arena-italia/" target="_blank">LLM Arena leaderboard</Link> and it is able to produce high quality text in a wide range of domains.
+                href="https://indigo.ai/it/chatbot-arena-italia/" target="_blank">LLM Arena leaderboard ITA from indigo.ai</Link> competing with the best closed model from Openai, Anthropic and Google and it is able to produce high quality text in a wide range of domains.
                 Maestrale is able to integrate with tools via json and API calls and has reasoning capabilities. Discover more on the <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
                 href="/api" target="_blank">api documentation.</Link>
               </p>

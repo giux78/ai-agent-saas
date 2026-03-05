@@ -177,7 +177,7 @@ export default async function IndexPage() {
                     Zagreus
                   </h2>
                   <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  The Zagreus-0.4B family is a set of four bilingual foundational Small Language Models trained from scratch by the mii-llm community on ~1 trillion open-source tokens, pairing English with Italian, Spanish, Portuguese, and French. Built on a modified Llama-3.2 dense architecture at ~400M parameters on Seeweb's 64× A100 HPC cluster, these models are fully open — weights, configs, and evaluations included — and serve as the foundation for the post-trained Nesso family.</p>
+                  The Zagreus-0.4B family is a set of four bilingual foundational Small Language Models trained from scratch by the mii-llm community on ~1 trillion open-source tokens, pairing English with Italian, Spanish, Portuguese, and French. Built on a modified Llama-3.2 dense architecture at ~400M parameters on Seeweb 64× A100 HPC cluster, these models are fully open — weights, configs, and evaluations included — and serve as the foundation for the post-trained Nesso family.</p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link href="https://huggingface.co/collections/mii-llm/zagreus-04b" className="flex items-center gap-2">

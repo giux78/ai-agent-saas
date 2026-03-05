@@ -18,6 +18,13 @@ export const siteConfig: SiteConfig = {
 
 export const features = [
   {
+    title: "Nesso Zagreus",
+    description:
+      "Full technical report for the Zagreus & Nesso SLM families — from data pipeline and pre-training to post-training and evaluation — releasing 7 open bilingual Romance language models with fully reproducible configs.",
+    link: "https://github.com/mii-llm/zagreus-nesso-slm",
+    icon: "github"
+  },
+  {
     title: "Propaganda",
     description:
       "Propaganda is an open-source initiative dedicated to assessing and generating political bias in Large Language Models (LLMs).",

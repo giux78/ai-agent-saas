@@ -18,6 +18,24 @@ export const siteConfig: SiteConfig = {
 
 export const features = [
   {
+    title: "Nesso3-0.4B-Agentic",
+    description:
+      "Our latest compact bilingual Italian / English model for function calling and structured output, built for practical agentic workflows.",
+    link: "https://huggingface.co/mii-llm/nesso3-0.4B-agentic",
+    icon: "hf",
+    category: "Small language model",
+    featured: true,
+  },
+  {
+    title: "Palingenesis",
+    description:
+      "A memory-efficient fine-tuning framework with native support for agentic data, scaling from a single GPU to multi-node training.",
+    link: "https://mii-llm.github.io/palingenesis/",
+    icon: "docs",
+    category: "Training framework",
+    featured: true,
+  },
+  {
     title: "Nesso Zagreus",
     description:
       "Full technical report for the Zagreus & Nesso SLM families — from data pipeline and pre-training to post-training and evaluation — releasing 7 open bilingual Romance language models with fully reproducible configs.",

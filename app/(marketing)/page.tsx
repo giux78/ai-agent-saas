@@ -1,13 +1,12 @@
 import Link from "next/link"
 
 import { buttonVariants } from "@/components/ui/button"
-import { siteConfig } from "@/config/site"
-import { cn, nFormatter } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import Balancer from "react-wrap-balancer"
 import { Icons } from "@/components/shared/icons"
-import { env } from "@/env.mjs"
 import Features from "@/components/features"
-import { HeaderSection } from "@/components/shared/header-section"
+import { LatestWorks } from "@/components/latest-works"
+import { ResearchShowcase } from '@/components/research-showcase'
 
 export default async function IndexPage() {
   return (
@@ -54,14 +53,14 @@ export default async function IndexPage() {
               <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
                 MII-LLM
               </span>
-              {" "} an indipendent AI research community 
+              {" "} an independent AI research community
             </Balancer>
           </h1>
           <p
           className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-           We are specializing ourselves in training, evaluating, developing and deploying AI systems. 
+           We train, evaluate, develop and deploy AI systems.
            All our services are supported by <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
                 href="https://seeweb.it" target="_blank">Seeweb</Link> cloud provider.
            We &hearts; Italy and open source.
@@ -72,294 +71,17 @@ export default async function IndexPage() {
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
 
-          {/*
           <Link
-            href="/api"
-            prefetch={true}
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "gap-2",
-            )}
+            href="#latest-work"
+            className={cn(buttonVariants({ size: "lg" }), "gap-2 rounded-full px-6")}
           >
-            <span> API</span>
-            <Icons.arrowRight className="size-4" />
-          </Link> */}
-          <Link
-            href="https://chat.mii-llm.ai"
-            target="_blank"
-            className={cn(
-              buttonVariants({
-               // variant: "outline",
-                size: "lg",
-              }),
-              "px-5",
-            )}
-          >
-            <p>
-              <span className="">MII-LLM CHAT</span>
-            </p>
+            Explore our latest work
+            <Icons.arrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
-                <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
-                Nesso
-              </h1>
-<p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-  The <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
-  href="https://huggingface.co/collections/mii-llm/nesso" target="_blank">Nesso-0.4B</Link> family is a set of ~400M parameter bilingual English/Italian Small Language Models post-trained on top of <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
-  href="https://huggingface.co/mii-llm/zagreus-0.4B-ita" target="_blank">Zagreus-0.4B-ita</Link>, optimized for edge deployment. Available in three variants: <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
-  href="https://huggingface.co/mii-llm/nesso-0.4B-instruct" target="_blank">instruct</Link> for conversational use, <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
-  href="https://huggingface.co/mii-llm/nesso-0.4B-agentic" target="_blank">agentic</Link> for function calling and structured output, and a fully <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
-  href="https://huggingface.co/mii-llm/open-zagreus-0.4B" target="_blank">open-source</Link> variant with fully reproducible data and training recipe.
-</p>
-              
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="https://huggingface.co/mii-llm/nesso-0.4B-agentic" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                              Nesso Agentic
-                  </Link>
-                  <Link href="https://huggingface.co/mii-llm/nesso-0.4B-instruct" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                              Nesso Instruct
-                  </Link>
-                  <Link href="https://huggingface.co/mii-llm/open-zagreus-0.4B" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                             Open Zagreus
-                  </Link>
-
-              </div>
-            </div>
-            <img
-              alt="Hero image"
-              className="overflow-hidden rounded-xl object-cover object-center"
-              height="310"
-              src="/images/nesso.png"
-              width="500"
-            />
-          </div>
         </section>
-         <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-            <Link 
-                href="https://github.com/mii-llm/zagreus-nesso-slm" target="_blank">
-              <img
-                alt="Image"
-                className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                height="310"
-                src="/images/zagreus.png"
-                width="500"
-              />
-              </Link>
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Zagreus
-                  </h2>
-                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  The Zagreus-0.4B family is a set of four bilingual foundational Small Language Models trained from scratch by the mii-llm community on ~1 trillion open-source tokens, pairing English with Italian, Spanish, Portuguese, and French. Built on a modified Llama-3.2 dense architecture at ~400M parameters on Seeweb 64× A100 HPC cluster, these models are fully open — weights, configs, and evaluations included — and serve as the foundation for the post-trained Nesso family.</p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="https://huggingface.co/collections/mii-llm/zagreus-04b" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                              Zagreus
-                      </Link>
-                      <Link href="https://github.com/mii-llm/zagreus-nesso-slm" className="flex items-center gap-2">
-                        <Icons.gitHub className="size-7" />
-                        <span>Code </span>
-                      </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none">
-                Maestrale
-              </h1>
-              <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Is a 7 billion  <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://huggingface.co/mii-llm/maestrale-chat-v0.4-beta" target="_blank">open source</Link> model fine tuned for producing good Italian both semantically and syntatically.  It is one of the best model for Italian language as is shown in the <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="https://indigo.ai/it/chatbot-arena-italia/" target="_blank">LLM Arena leaderboard ITA from indigo.ai</Link> competing with the best closed model from Openai, Anthropic and Google and it is able to produce high quality text in a wide range of domains.
-                Maestrale is able to integrate with tools via json and API calls and has reasoning capabilities. Discover more on the <Link className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800" 
-                href="/api" target="_blank">api documentation.</Link>
-              </p>
-              
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="https://chat.mii-llm.ai" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                  Chat with MII-LLM
-              </Link>
-              <Link href="/api" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-                  Maestrale API
-              </Link>
-              </div>
-            </div>
-            <img
-              alt="Hero image"
-              className="overflow-hidden rounded-xl object-cover object-center"
-              height="310"
-              src="/images/zefiro_small.png"
-              width="500"
-            />
-          </div>
-        </section>
-        </section>
-         <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-           <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-            <Link 
-                href="https://github.com/mii-llm/propaganda" target="_blank">
-              <img
-                alt="Image"
-                className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                height="310"
-                src="/images/propaganda.png"
-                width="500"
-              />
-              </Link>
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Propaganda
-                  </h2>
-                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Propaganda is an open-source initiative dedicated to assessing and generating political bias in Large Language Models (LLMs). It offers comprehensive suites designed for evaluating political bias, developing datasets to introduce political bias into LLMs, and has also released two specific LLMs: Propaganda-dx, tailored for conservative bias, and Propaganda-sx, aimed at liberal bias.                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="https://huggingface.co/mii-llm/propaganda-dpo-dx-v0.1" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                              Propaganda-dx
-                      </Link>
-                      <Link href="https://huggingface.co/mii-llm/propaganda-dpo-sx-v0.1" className="flex items-center gap-2">
-                        <img
-                            alt="hugging face"
-                            className="object-cover object-center"
-                            height="40"
-                            src="/images/hf-logo.png"
-                            width="40"
-                            />
-                              Propaganda-sx
-                      </Link>
-
-
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="https://github.com/mii-llm/propaganda" className="flex items-center gap-2">
-                        <Icons.gitHub className="size-7" />
-                        <span>Code </span>
-                      </Link>
-                      <Link href="https://github.com/mii-llm/propaganda/blob/main/eval/propaganda_evals/charts/Propaganda.pdf" className="flex items-center gap-2">
-                        <Icons.gitHub className="size-7" />
-                        <span>Technical report </span>
-                      </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-24 xl:py-24">
-        <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-            <Link 
-                href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" target="_blank">
-              <img
-                alt="Image"
-                className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                height="310"
-                src="/images/leaderboard.png"
-                width="500"
-              />
-              </Link>
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Italian LLMs leaderboard
-                  </h2>
-                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    The ranking of the open source Italian LLMs on reproducible evaluation benchmarks as mmlu_it, arc_c_it, hellaswag_it and others. 
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="https://huggingface.co/spaces/FinancialSupport/open_ita_llm_leaderboard" 
-                  className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
-                  target="_blank"
-                  rel="noreferrer">
-                  Go to the leaderboard
-                </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-24 xl:py-24">
-          <div className="container flex flex-col items-center justify-center space-y-4 px-4 md:flex-row md:space-y-0 md:px-6 lg:space-x-12 lg:px-12 xl:space-x-16">
-            <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-            <Link 
-                href="https://huggingface.co/spaces/mii-llm/pinocchio-ita-leaderboard" target="_blank">
-              <img
-                alt="Image"
-                className="mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                height="310"
-                src="/images/pinocchio-leaderboard.png"
-                width="500"
-              />
-              </Link>
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Pinocchio ITA leaderboard
-                  </h2>
-                  <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Specialized benchmarks on specific topics as logic, math, law, foreign language and culture for Italian finetuned LLMs  
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="https://huggingface.co/spaces/mii-llm/pinocchio-ita-leaderboard" 
-                  className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
-                  target="_blank"
-                  rel="noreferrer">
-                  Go to the leaderboard
-                </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
+        <LatestWorks />
+        <ResearchShowcase />
         <Features></Features>
       
     </>

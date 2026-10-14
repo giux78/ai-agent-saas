@@ -3,21 +3,12 @@ import { DashboardConfig } from "types"
 export const dashboardConfig: DashboardConfig = {
   mainNav: [
     {
-      title: "Api",
-      href: "/api",
-    },
-    {
       title: "Support",
       href: "/support",
       disabled: true,
     },
   ],
   sidebarNav: [
-    {
-      title: "Chat",
-      href: "https://chat.mii-llm.ai",
-      icon: "post",
-    },
     {
       title: "Agents",
       href: "/agents",
@@ -32,11 +23,6 @@ export const dashboardConfig: DashboardConfig = {
       title: "Settings",
       href: "/agents/settings",
       icon: "settings",
-    },
-    {
-      title: "API coming soon",
-      href: "#",
-      icon: "waypoints",
     },
   ],
 }

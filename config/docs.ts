@@ -3,10 +3,6 @@ import { DocsConfig } from "types"
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Api",
-      href: "/api",
-    },
-    {
       title: "Guides",
       href: "/guides",
     },

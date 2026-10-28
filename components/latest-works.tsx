@@ -1,18 +1,32 @@
 import Link from "next/link"
-import { ArrowUpRight, Cpu, Layers } from "lucide-react"
+import { ArrowUpRight, Cpu, GitBranch, Layers } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const works = [
   {
+    title: "Nev",
+    category: "Bilingual decision model",
+    description:
+      "Turn English and Italian requests into structured choices. Built on Nesso2, Nev selects among your supplied options for routing, function selection, and classification, returning typed decisions and option probabilities—not generated text or tool arguments.",
+    highlights: ["~0.4B backbone", "English / Italian", "Apache 2.0"],
+    links: [
+      { href: "https://huggingface.co/mii-llm/nev", action: "Hugging Face" },
+      { href: "https://github.com/mii-llm/nev", action: "GitHub" },
+    ],
+    icon: GitBranch,
+    accent: "from-amber-500/10 via-orange-500/5 to-transparent",
+  },
+  {
     title: "Nesso3-0.4B-Agentic",
     category: "Small language model",
     description:
       "Our latest bilingual Italian / English model for function calling and structured output. Built on Zagreus, Nesso3 learns a compact tool contract across thousands of tool schemas, with a focus on Italian tool use.",
     highlights: ["~438M parameters", "32K context", "Apache 2.0"],
-    href: "https://huggingface.co/mii-llm/nesso3-0.4B-agentic",
-    action: "Explore the model",
+    links: [
+      { href: "https://huggingface.co/mii-llm/nesso3-0.4B-agentic", action: "Explore the model" },
+    ],
     icon: Cpu,
     accent: "from-indigo-500/10 via-purple-500/5 to-transparent",
   },
@@ -22,8 +36,9 @@ const works = [
     description:
       "Research-informed fine-tuning with practical defaults. Memory-efficient training, native support for agentic data, and one configuration that scales from a single GPU to multi-node clusters.",
     highlights: ["Memory-efficient", "Agentic training", "Multi-node ready"],
-    href: "https://mii-llm.github.io/palingenesis/",
-    action: "Read the documentation",
+    links: [
+      { href: "https://mii-llm.github.io/palingenesis/", action: "Read the documentation" },
+    ],
     icon: Layers,
     accent: "from-teal-500/10 via-cyan-500/5 to-transparent",
   },
@@ -47,11 +62,11 @@ export function LatestWorks() {
           Small models. New possibilities.
         </h2>
         <p className="text-lg text-muted-foreground">
-          Discover our newest model and the tools to build what comes next.
+          Discover our newest models and the tools to build what comes next.
           Open research, made to be explored.
         </p>
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-3">
         {works.map((work) => (
           <article
             key={work.title}
@@ -84,16 +99,21 @@ export function LatestWorks() {
                 </li>
               ))}
             </ul>
-            <Link
-              href={work.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "outline" }), "mt-auto w-fit max-w-full gap-2 bg-background")}
-            >
-              {work.action}
-              <ArrowUpRight className="size-4 shrink-0" aria-hidden="true" />
-              <span className="sr-only"> (opens in a new tab)</span>
-            </Link>
+            <div className="mt-auto flex flex-wrap gap-3">
+              {work.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(buttonVariants({ variant: "outline" }), "w-fit max-w-full gap-2 bg-background")}
+                >
+                  {link.action}
+                  <ArrowUpRight className="size-4 shrink-0" aria-hidden="true" />
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </Link>
+              ))}
+            </div>
           </article>
         ))}
       </div>

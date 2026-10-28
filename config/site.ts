@@ -18,6 +18,15 @@ export const siteConfig: SiteConfig = {
 
 export const features = [
   {
+    title: "Nev",
+    description:
+      "An English / Italian decision-model family built on Nesso2 for routing, function selection, and classification over supplied options, with typed decisions and option probabilities.",
+    link: "https://huggingface.co/mii-llm/nev",
+    icon: "hf",
+    category: "Bilingual decision model",
+    featured: true,
+  },
+  {
     title: "Nesso3-0.4B-Agentic",
     description:
       "Our latest compact bilingual Italian / English model for function calling and structured output, built for practical agentic workflows.",

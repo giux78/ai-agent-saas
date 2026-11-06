@@ -76,8 +76,9 @@ export function ResearchPriorities() {
           </div>
         </div>
         <blockquote className="mt-12 max-w-4xl border-l-2 border-indigo-400 pl-6 font-urban text-xl font-medium leading-relaxed sm:text-2xl">
-          We don&apos;t need every model to know everything. We need models that
-          know their purpose, excel at it and can cooperate with others.
+          We believe the future of AI lies in specialized models, each developing
+          distinct capabilities and contributing to a broader intelligence through
+          cooperation.
         </blockquote>
       </div>
     </section>

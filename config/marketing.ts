@@ -17,6 +17,10 @@ export const marketingConfig: MarketingConfig = {
     {
       title: "Blog",
       href: "https://medium.com/@giuxale",
+    },
+    {
+      title: "Manifesto",
+      href: "/manifesto",
     },/*
     {
       title: "Store",

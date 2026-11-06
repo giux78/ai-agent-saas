@@ -7,6 +7,7 @@ import { Icons } from "@/components/shared/icons"
 import Features from "@/components/features"
 import { LatestWorks } from "@/components/latest-works"
 import { ResearchShowcase } from '@/components/research-showcase'
+import { ResearchPriorities } from "@/components/research-priorities"
 
 export default async function IndexPage() {
   return (
@@ -81,6 +82,7 @@ export default async function IndexPage() {
         </div>
         </section>
         <LatestWorks />
+        <ResearchPriorities />
         <ResearchShowcase />
         <Features></Features>
       

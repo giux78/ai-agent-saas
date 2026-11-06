@@ -1,10 +1,23 @@
 import Link from "next/link"
-import { ArrowUpRight, Cpu, GitBranch, Layers } from "lucide-react"
+import { ArrowUpRight, Cpu, GitBranch, Layers, Workflow } from "lucide-react"
 
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const works = [
+  {
+    title: "Nevso",
+    category: "Local AI agent · Developer preview",
+    description:
+      "Nev chooses. Nesso3 calls and answers. Nevso combines structured tool selection with small-model generation for local English and Italian agents. Your application validates calls and controls execution, with offline inference after setup on Linux and macOS.",
+    highlights: ["Nev + Nesso3", "Local inference", "English / Italian"],
+    links: [
+      { href: "https://github.com/mii-llm/nev/blob/main/docs/launch/nevso.md", action: "Read the launch article" },
+      { href: "https://github.com/mii-llm/nev", action: "Code on GitHub" },
+    ],
+    icon: Workflow,
+    accent: "from-emerald-500/10 via-teal-500/5 to-transparent",
+  },
   {
     title: "Nev",
     category: "Bilingual decision model",
@@ -66,7 +79,7 @@ export function LatestWorks() {
           Open research, made to be explored.
         </p>
       </div>
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-2">
         {works.map((work) => (
           <article
             key={work.title}
